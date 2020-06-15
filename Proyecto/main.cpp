@@ -9,6 +9,11 @@ void out(const string& str) {
     file << str;
 }
 
+void handshake(const string& name) {
+    string str = "HANDSHAKE=" + name;
+    out(str);
+}
+
 int main() {
-    out("ga");
+    handshake("dinamita team");
 }
