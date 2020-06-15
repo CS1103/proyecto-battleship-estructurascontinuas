@@ -1,0 +1,3 @@
+/cygdrive/c/Users/Acer/ProyectoPOO2/Proyecto/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/cygdrive/c/Users/Acer/ProyectoPOO2/Proyecto/cmake-build-debug/CMakeFiles/Proyecto.dir
+/cygdrive/c/Users/Acer/ProyectoPOO2/Proyecto/cmake-build-debug/CMakeFiles/edit_cache.dir
