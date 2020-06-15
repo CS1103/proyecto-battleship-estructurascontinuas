@@ -1,6 +1,14 @@
 #include <iostream>
+#include <fstream>
+
+using namespace std;
+
+void out(const string& str) {
+    ofstream file;
+    file.open("../in/FirstPlayer.in");
+    file << str;
+}
 
 int main() {
-    std::cout << "Mario wn!" << std::endl;
-    return 0;
+    out("ga");
 }
