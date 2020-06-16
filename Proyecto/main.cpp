@@ -9,6 +9,23 @@ void out(const string& str) {
     file << str;
 }
 
+string in () {
+    ifstream file;
+    string comando;
+    string line;
+    file.open("../out/FirstPlayer.out");
+    if (file.is_open    ())
+    {
+        while ( getline (file,line) )
+        {
+            comando += line + '\n';
+        }
+        file.close();
+    }
+    else{cout << "no se puede abrir";}
+    return line;
+}
+
 void handshake(const string& name) {
     string str = "HANDSHAKE=" + name;
     out(str);
@@ -16,4 +33,5 @@ void handshake(const string& name) {
 
 int main() {
     handshake("dinamita team");
+    cout << in();
 }
