@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <cstdio>
+#include <vector>
 
 using namespace std;
 
@@ -15,24 +16,27 @@ void out(const string& str) {
     file << str;
 }
 
-string in () { // devuelve el comando que haya en el .out
+vector<string> in () { // devuelve el comando que haya en el .out
     ifstream file;
-    string comando;
+    vector<string> comando(10);
     string line;
+    int idx = 0;
     file.open("../out/FirstPlayer.out");
     if (file.is_open    ())
     {
         while ( getline (file,line) )
         {
-            comando += line + '\n';
+            comando[idx] = line;
+
+            idx++;
         }
         file.close();
     }
     else{cout << "no se puede abrir";}
-    return line;
+    return comando;
 }
 
-void handshake(const string& name) {
+void handshakeIn(const string& name) {
     string str = "HANDSHAKE=" + name;
     out(str);
 }
@@ -43,12 +47,27 @@ void waitOut() {    // observer? espera hasta que exista un archivo.out
     while (!file.is_open()) {
         file.open("../out/FirstPlayer.out");
     }
-    cout << in() << endl; //guarda la informacion del .out
-    remove("../out/FirstPlayer.out"); //borra el .out
+    vector<string> command = in();
+    if (command[0] == "HANDSHAKE\r") {
+        string status =  command[1].substr(7);
+        if (status == "ACCEPTED\r") {
+            string token = command[2].substr(6);
+            cout << token <<endl;
+        }
+        else if (status == "REJECTED\r") {
+
+        }
+    }
+    else if (command[0] == "PLACEFLEET\r") {
+
+    }
+    else if (command[0] == "ATTACK\r") {
+
+    }//guarda la informacion del .out
+    //remove("../out/FirstPlayer.out"); //borra el .out
 }
 
 int main() {
-    handshake("dinamita team");
+    //handshakeIn("dinamita team");
     waitOut();
-    cout << "se encontro out";
 }
