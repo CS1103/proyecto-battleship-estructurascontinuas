@@ -80,7 +80,25 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/cygdrive/c/Users/Acer/ProyectoPOO2/Proyecto/board_t.cpp">
+			<Option target="Proyecto"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Acer/ProyectoPOO2/Proyecto/board_t.h">
+			<Option target="Proyecto"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Acer/ProyectoPOO2/Proyecto/cell_t.cpp">
+			<Option target="Proyecto"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Acer/ProyectoPOO2/Proyecto/cell_t.h">
+			<Option target="Proyecto"/>
+		</Unit>
 		<Unit filename="/cygdrive/c/Users/Acer/ProyectoPOO2/Proyecto/main.cpp">
+			<Option target="Proyecto"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Acer/ProyectoPOO2/Proyecto/navy_t.cpp">
+			<Option target="Proyecto"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Acer/ProyectoPOO2/Proyecto/navy_t.h">
 			<Option target="Proyecto"/>
 		</Unit>
 		<Unit filename="/cygdrive/c/Users/Acer/ProyectoPOO2/Proyecto/CMakeLists.txt">

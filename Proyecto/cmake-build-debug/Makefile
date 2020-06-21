@@ -123,6 +123,60 @@ Proyecto/fast:
 	$(MAKE) -f CMakeFiles/Proyecto.dir/build.make CMakeFiles/Proyecto.dir/build
 .PHONY : Proyecto/fast
 
+board_t.o: board_t.cpp.o
+
+.PHONY : board_t.o
+
+# target to build an object file
+board_t.cpp.o:
+	$(MAKE) -f CMakeFiles/Proyecto.dir/build.make CMakeFiles/Proyecto.dir/board_t.cpp.o
+.PHONY : board_t.cpp.o
+
+board_t.i: board_t.cpp.i
+
+.PHONY : board_t.i
+
+# target to preprocess a source file
+board_t.cpp.i:
+	$(MAKE) -f CMakeFiles/Proyecto.dir/build.make CMakeFiles/Proyecto.dir/board_t.cpp.i
+.PHONY : board_t.cpp.i
+
+board_t.s: board_t.cpp.s
+
+.PHONY : board_t.s
+
+# target to generate assembly for a file
+board_t.cpp.s:
+	$(MAKE) -f CMakeFiles/Proyecto.dir/build.make CMakeFiles/Proyecto.dir/board_t.cpp.s
+.PHONY : board_t.cpp.s
+
+cell_t.o: cell_t.cpp.o
+
+.PHONY : cell_t.o
+
+# target to build an object file
+cell_t.cpp.o:
+	$(MAKE) -f CMakeFiles/Proyecto.dir/build.make CMakeFiles/Proyecto.dir/cell_t.cpp.o
+.PHONY : cell_t.cpp.o
+
+cell_t.i: cell_t.cpp.i
+
+.PHONY : cell_t.i
+
+# target to preprocess a source file
+cell_t.cpp.i:
+	$(MAKE) -f CMakeFiles/Proyecto.dir/build.make CMakeFiles/Proyecto.dir/cell_t.cpp.i
+.PHONY : cell_t.cpp.i
+
+cell_t.s: cell_t.cpp.s
+
+.PHONY : cell_t.s
+
+# target to generate assembly for a file
+cell_t.cpp.s:
+	$(MAKE) -f CMakeFiles/Proyecto.dir/build.make CMakeFiles/Proyecto.dir/cell_t.cpp.s
+.PHONY : cell_t.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -150,6 +204,33 @@ main.cpp.s:
 	$(MAKE) -f CMakeFiles/Proyecto.dir/build.make CMakeFiles/Proyecto.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+navy_t.o: navy_t.cpp.o
+
+.PHONY : navy_t.o
+
+# target to build an object file
+navy_t.cpp.o:
+	$(MAKE) -f CMakeFiles/Proyecto.dir/build.make CMakeFiles/Proyecto.dir/navy_t.cpp.o
+.PHONY : navy_t.cpp.o
+
+navy_t.i: navy_t.cpp.i
+
+.PHONY : navy_t.i
+
+# target to preprocess a source file
+navy_t.cpp.i:
+	$(MAKE) -f CMakeFiles/Proyecto.dir/build.make CMakeFiles/Proyecto.dir/navy_t.cpp.i
+.PHONY : navy_t.cpp.i
+
+navy_t.s: navy_t.cpp.s
+
+.PHONY : navy_t.s
+
+# target to generate assembly for a file
+navy_t.cpp.s:
+	$(MAKE) -f CMakeFiles/Proyecto.dir/build.make CMakeFiles/Proyecto.dir/navy_t.cpp.s
+.PHONY : navy_t.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -159,9 +240,18 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... Proyecto"
 	@echo "... edit_cache"
+	@echo "... board_t.o"
+	@echo "... board_t.i"
+	@echo "... board_t.s"
+	@echo "... cell_t.o"
+	@echo "... cell_t.i"
+	@echo "... cell_t.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... navy_t.o"
+	@echo "... navy_t.i"
+	@echo "... navy_t.s"
 .PHONY : help
 
 

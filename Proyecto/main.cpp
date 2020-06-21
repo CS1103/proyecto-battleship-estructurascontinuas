@@ -1,20 +1,6 @@
-#include <map>
-#include <vector>
-#include <queue>
-#include <string>
-#include <string_view>
-#include <memory>
-#include <iostream>
-#include <fstream>
-#include <algorithm>
-#include <filesystem>
-#include <numeric>
-#include <random>
-#include <sstream>
-#include <future>
-#include <optional>
-#include <regex>
-#include <utility>
+#include "common_types.h"
+
+#include "navy_t.h"
 
 using namespace std;
 
@@ -29,10 +15,6 @@ int randint(int a, int b){
     return dist6(rng);
 }
 
-class player_t {
-
-};
-
 struct statement_t {
     string action;
     string token;
@@ -41,69 +23,6 @@ struct statement_t {
 };
 
 using statement_item_t = std::pair<size_t, statement_t>;
-
-class controller_t {
-private:
-    string columns_;
-    size_t rows_;
-    filesystem::path player_;
-    queue<statement_item_t> statements_;
-    optional<size_t> winner_;
-
-    void start(const statement_item_t &item) {
-
-    }
-
-    void build(const statement_item_t &item) {
-
-    }
-
-    void attack(const statement_item_t &item) {
-
-    }
-
-public:
-    controller_t(size_t rows, std::string_view columns, std::string_view first) {
-        player_ = filesystem::current_path() / first, "FirstPlayer";
-        if (!filesystem::exists(player_.root_path() / "in"))
-            filesystem::create_directories(player_.root_path() / "in");
-        if (!filesystem::exists(player_.root_path() / "out"))
-            filesystem::create_directories(player_.root_path() / "out");
-    }
-
-    void load_tokens() {
-
-    }
-};
-    /*void save_tokens(){
-        while (true) {
-            try {
-                while (!statements_.empty()) {
-                    auto item_ = statements_.front();
-                    statements_.pop();
-                    switch (item_.second.action) {
-                        case action_t::start:
-                            start(item_);
-                            break;
-                        case action_t::build:
-                            build(item_);
-                            break;
-                        case action_t::attack:
-                            attack(item_);
-                            break;
-                    }
-                }
-            }
-            catch (const std::exception& e) {
-                std::cerr << e.what();
-            }
-        }
-    }
-    void execute() {
-        auto load_ = std::async([&] { load_tokens(); });
-        auto save_ = std::async([&] { save_tokens(); });
-    }
-};*/
 
 
 void out(const string& str) {
@@ -177,10 +96,15 @@ statement_t waitIn() {    // observer? espera hasta que exista un archivo.in
 
 int main() {
     //handshakeIn("dinamita team");
-    statement_t st = waitIn();
-    statement_t* pst = &st;
+    //statement_t st = waitIn();
+    //statement_t* pst = &st;
     //cout << st.token << endl;
-    string type = "A";
-    out(placeFleet(pst, type));
+    //string type = "A";
+    //out(placeFleet(pst, type));
+    board_t b = board_t('J', 10);
+    navy_t n1 = navy_t(2,3,'A', 'H', b);
+    navy_t n2 = navy_t(4,6,'S', 'V', b);
+    navy_t n3 = navy_t(1,8,'B', 'H', b);
+    b.print();
     return 0;
 }

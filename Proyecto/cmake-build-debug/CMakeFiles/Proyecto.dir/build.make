@@ -70,17 +70,62 @@ CMakeFiles/Proyecto.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Proyecto.dir/main.cpp.s"
 	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cygdrive/c/Users/Acer/ProyectoPOO2/Proyecto/main.cpp -o CMakeFiles/Proyecto.dir/main.cpp.s
 
+CMakeFiles/Proyecto.dir/cell_t.cpp.o: CMakeFiles/Proyecto.dir/flags.make
+CMakeFiles/Proyecto.dir/cell_t.cpp.o: ../cell_t.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/c/Users/Acer/ProyectoPOO2/Proyecto/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Proyecto.dir/cell_t.cpp.o"
+	/usr/bin/c++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Proyecto.dir/cell_t.cpp.o -c /cygdrive/c/Users/Acer/ProyectoPOO2/Proyecto/cell_t.cpp
+
+CMakeFiles/Proyecto.dir/cell_t.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Proyecto.dir/cell_t.cpp.i"
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /cygdrive/c/Users/Acer/ProyectoPOO2/Proyecto/cell_t.cpp > CMakeFiles/Proyecto.dir/cell_t.cpp.i
+
+CMakeFiles/Proyecto.dir/cell_t.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Proyecto.dir/cell_t.cpp.s"
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cygdrive/c/Users/Acer/ProyectoPOO2/Proyecto/cell_t.cpp -o CMakeFiles/Proyecto.dir/cell_t.cpp.s
+
+CMakeFiles/Proyecto.dir/navy_t.cpp.o: CMakeFiles/Proyecto.dir/flags.make
+CMakeFiles/Proyecto.dir/navy_t.cpp.o: ../navy_t.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/c/Users/Acer/ProyectoPOO2/Proyecto/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Proyecto.dir/navy_t.cpp.o"
+	/usr/bin/c++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Proyecto.dir/navy_t.cpp.o -c /cygdrive/c/Users/Acer/ProyectoPOO2/Proyecto/navy_t.cpp
+
+CMakeFiles/Proyecto.dir/navy_t.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Proyecto.dir/navy_t.cpp.i"
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /cygdrive/c/Users/Acer/ProyectoPOO2/Proyecto/navy_t.cpp > CMakeFiles/Proyecto.dir/navy_t.cpp.i
+
+CMakeFiles/Proyecto.dir/navy_t.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Proyecto.dir/navy_t.cpp.s"
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cygdrive/c/Users/Acer/ProyectoPOO2/Proyecto/navy_t.cpp -o CMakeFiles/Proyecto.dir/navy_t.cpp.s
+
+CMakeFiles/Proyecto.dir/board_t.cpp.o: CMakeFiles/Proyecto.dir/flags.make
+CMakeFiles/Proyecto.dir/board_t.cpp.o: ../board_t.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/c/Users/Acer/ProyectoPOO2/Proyecto/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Proyecto.dir/board_t.cpp.o"
+	/usr/bin/c++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Proyecto.dir/board_t.cpp.o -c /cygdrive/c/Users/Acer/ProyectoPOO2/Proyecto/board_t.cpp
+
+CMakeFiles/Proyecto.dir/board_t.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Proyecto.dir/board_t.cpp.i"
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /cygdrive/c/Users/Acer/ProyectoPOO2/Proyecto/board_t.cpp > CMakeFiles/Proyecto.dir/board_t.cpp.i
+
+CMakeFiles/Proyecto.dir/board_t.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Proyecto.dir/board_t.cpp.s"
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cygdrive/c/Users/Acer/ProyectoPOO2/Proyecto/board_t.cpp -o CMakeFiles/Proyecto.dir/board_t.cpp.s
+
 # Object files for target Proyecto
 Proyecto_OBJECTS = \
-"CMakeFiles/Proyecto.dir/main.cpp.o"
+"CMakeFiles/Proyecto.dir/main.cpp.o" \
+"CMakeFiles/Proyecto.dir/cell_t.cpp.o" \
+"CMakeFiles/Proyecto.dir/navy_t.cpp.o" \
+"CMakeFiles/Proyecto.dir/board_t.cpp.o"
 
 # External object files for target Proyecto
 Proyecto_EXTERNAL_OBJECTS =
 
 Proyecto.exe: CMakeFiles/Proyecto.dir/main.cpp.o
+Proyecto.exe: CMakeFiles/Proyecto.dir/cell_t.cpp.o
+Proyecto.exe: CMakeFiles/Proyecto.dir/navy_t.cpp.o
+Proyecto.exe: CMakeFiles/Proyecto.dir/board_t.cpp.o
 Proyecto.exe: CMakeFiles/Proyecto.dir/build.make
 Proyecto.exe: CMakeFiles/Proyecto.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/cygdrive/c/Users/Acer/ProyectoPOO2/Proyecto/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable Proyecto.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/cygdrive/c/Users/Acer/ProyectoPOO2/Proyecto/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable Proyecto.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Proyecto.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
