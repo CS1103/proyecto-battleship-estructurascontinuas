@@ -92,6 +92,12 @@
 		<Unit filename="/cygdrive/c/Users/Acer/ProyectoPOO2/Proyecto/cell_t.h">
 			<Option target="Proyecto"/>
 		</Unit>
+		<Unit filename="/cygdrive/c/Users/Acer/ProyectoPOO2/Proyecto/controller_t.cpp">
+			<Option target="Proyecto"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Acer/ProyectoPOO2/Proyecto/controller_t.h">
+			<Option target="Proyecto"/>
+		</Unit>
 		<Unit filename="/cygdrive/c/Users/Acer/ProyectoPOO2/Proyecto/main.cpp">
 			<Option target="Proyecto"/>
 		</Unit>

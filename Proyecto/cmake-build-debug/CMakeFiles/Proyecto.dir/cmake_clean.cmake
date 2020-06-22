@@ -1,6 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/Proyecto.dir/board_t.cpp.o"
   "CMakeFiles/Proyecto.dir/cell_t.cpp.o"
+  "CMakeFiles/Proyecto.dir/controller_t.cpp.o"
   "CMakeFiles/Proyecto.dir/main.cpp.o"
   "CMakeFiles/Proyecto.dir/navy_t.cpp.o"
   "Proyecto.exe"

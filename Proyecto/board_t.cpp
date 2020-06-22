@@ -4,6 +4,11 @@
 
 #include "board_t.h"
 
+board_t::board_t() {
+    cols_ = 0;
+    rows_ = 0;
+}
+
 board_t::board_t(letter_t cols, size_t rows) {
     cols_ = cols;
     rows_ = rows;
@@ -39,3 +44,18 @@ void board_t::print() const {
         cout << endl;
     }
 }
+
+void board_t::add_fleet(navy_t& navy) {
+    fleet_.push_back(navy);
+    pFleet_.push_back(&navy);
+}
+
+letter_t board_t::get_cols() {
+    return cols_;
+}
+
+size_t board_t::get_rows() {
+    return rows_;
+}
+
+

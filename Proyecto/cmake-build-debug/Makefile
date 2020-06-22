@@ -177,6 +177,33 @@ cell_t.cpp.s:
 	$(MAKE) -f CMakeFiles/Proyecto.dir/build.make CMakeFiles/Proyecto.dir/cell_t.cpp.s
 .PHONY : cell_t.cpp.s
 
+controller_t.o: controller_t.cpp.o
+
+.PHONY : controller_t.o
+
+# target to build an object file
+controller_t.cpp.o:
+	$(MAKE) -f CMakeFiles/Proyecto.dir/build.make CMakeFiles/Proyecto.dir/controller_t.cpp.o
+.PHONY : controller_t.cpp.o
+
+controller_t.i: controller_t.cpp.i
+
+.PHONY : controller_t.i
+
+# target to preprocess a source file
+controller_t.cpp.i:
+	$(MAKE) -f CMakeFiles/Proyecto.dir/build.make CMakeFiles/Proyecto.dir/controller_t.cpp.i
+.PHONY : controller_t.cpp.i
+
+controller_t.s: controller_t.cpp.s
+
+.PHONY : controller_t.s
+
+# target to generate assembly for a file
+controller_t.cpp.s:
+	$(MAKE) -f CMakeFiles/Proyecto.dir/build.make CMakeFiles/Proyecto.dir/controller_t.cpp.s
+.PHONY : controller_t.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -246,6 +273,9 @@ help:
 	@echo "... cell_t.o"
 	@echo "... cell_t.i"
 	@echo "... cell_t.s"
+	@echo "... controller_t.o"
+	@echo "... controller_t.i"
+	@echo "... controller_t.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

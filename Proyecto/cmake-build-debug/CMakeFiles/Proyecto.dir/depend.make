@@ -11,9 +11,17 @@ CMakeFiles/Proyecto.dir/cell_t.cpp.o: ../cell_t.cpp
 CMakeFiles/Proyecto.dir/cell_t.cpp.o: ../cell_t.h
 CMakeFiles/Proyecto.dir/cell_t.cpp.o: ../common_types.h
 
+CMakeFiles/Proyecto.dir/controller_t.cpp.o: ../board_t.h
+CMakeFiles/Proyecto.dir/controller_t.cpp.o: ../cell_t.h
+CMakeFiles/Proyecto.dir/controller_t.cpp.o: ../common_types.h
+CMakeFiles/Proyecto.dir/controller_t.cpp.o: ../controller_t.cpp
+CMakeFiles/Proyecto.dir/controller_t.cpp.o: ../controller_t.h
+CMakeFiles/Proyecto.dir/controller_t.cpp.o: ../navy_t.h
+
 CMakeFiles/Proyecto.dir/main.cpp.o: ../board_t.h
 CMakeFiles/Proyecto.dir/main.cpp.o: ../cell_t.h
 CMakeFiles/Proyecto.dir/main.cpp.o: ../common_types.h
+CMakeFiles/Proyecto.dir/main.cpp.o: ../controller_t.h
 CMakeFiles/Proyecto.dir/main.cpp.o: ../main.cpp
 CMakeFiles/Proyecto.dir/main.cpp.o: ../navy_t.h
 

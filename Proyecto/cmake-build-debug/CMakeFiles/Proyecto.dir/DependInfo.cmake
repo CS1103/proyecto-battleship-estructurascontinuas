@@ -6,6 +6,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_CXX
   "/cygdrive/c/Users/Acer/ProyectoPOO2/Proyecto/board_t.cpp" "/cygdrive/c/Users/Acer/ProyectoPOO2/Proyecto/cmake-build-debug/CMakeFiles/Proyecto.dir/board_t.cpp.o"
   "/cygdrive/c/Users/Acer/ProyectoPOO2/Proyecto/cell_t.cpp" "/cygdrive/c/Users/Acer/ProyectoPOO2/Proyecto/cmake-build-debug/CMakeFiles/Proyecto.dir/cell_t.cpp.o"
+  "/cygdrive/c/Users/Acer/ProyectoPOO2/Proyecto/controller_t.cpp" "/cygdrive/c/Users/Acer/ProyectoPOO2/Proyecto/cmake-build-debug/CMakeFiles/Proyecto.dir/controller_t.cpp.o"
   "/cygdrive/c/Users/Acer/ProyectoPOO2/Proyecto/main.cpp" "/cygdrive/c/Users/Acer/ProyectoPOO2/Proyecto/cmake-build-debug/CMakeFiles/Proyecto.dir/main.cpp.o"
   "/cygdrive/c/Users/Acer/ProyectoPOO2/Proyecto/navy_t.cpp" "/cygdrive/c/Users/Acer/ProyectoPOO2/Proyecto/cmake-build-debug/CMakeFiles/Proyecto.dir/navy_t.cpp.o"
   )

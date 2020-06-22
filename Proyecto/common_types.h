@@ -30,6 +30,7 @@ using status_t = string;
 using model_t = char;
 using orientation_t = char;
 using letter_t = char;
+using text_t = string;
 
 struct location_t {
     position_t x;
