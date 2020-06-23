@@ -13,7 +13,7 @@ struct statement_t {
     string action;
     string token;
     string status;
-    string parameter;
+    parameter_t parameter;
 };
 
 using statements_list = queue<statement_t>;
@@ -31,7 +31,9 @@ private:
 public:
     string placeFleet(model_t& model);
     explicit controller_t(text_t& name);
-    void setBoard(letter_t cols, size_t rows);
+    void setBoard(parameter_t scope);
+    board_t getBoard();
+    void setToken(const text_t& token);
     void execute();
     void load_tokens();
     void save_tokens();

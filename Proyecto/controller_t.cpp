@@ -66,17 +66,19 @@ statement_t waitIn() {    // observer? espera hasta que exista un archivo.in
         file.open("../in/FirstPlayer.in");
     }
     statement_t statement = in();
-
-    remove("../out/FirstPlayer.out"); //borra el .out
+    remove("../in/FirstPlayer.in"); //borra el .out
     return statement;
 }//guarda la informacion del .in
 
 string controller_t::placeFleet(model_t& model){ // recibe el primer statement y
     string str = "TOKEN=" + token_ + "\n";
-    char cols = char(randint(65, board_.get_rows()));
-    size_t rows = randint(1, board_.get_cols());
+    cout << "token: " << token_ << "\n";
+    char cols = char(randint(65, board_.get_cols()));
+    size_t rows = randint(1, board_.get_rows());
+    cout << "coor: " << cols << "-" << rows << "\n";
     vector<char> orientaciones = {'H', 'V'};
     char orientacion = orientaciones[randint(0, 1)];
+    cout << "orientation: " << orientacion << "\n";
     navy_t navy = navy_t(cols-65, rows, model, orientacion, board_);
     //creacion del string
     string coordinates;
@@ -112,8 +114,9 @@ void controller_t::execute() {
             }
             while( statements_.front().action == "PLACEFLEET\r" || ( statements_.front().status == "ACCEPTED\r" && !hPassed)) {
                 cout << "paso 2 \n";
-                if () {
-                    
+                if (!hPassed) {
+                    setBoard(statements_.front().parameter);
+                    setToken(statements_.front().token);
                 }
                 hPassed = true;
                 build( statements_.front());
@@ -142,18 +145,30 @@ controller_t::controller_t(text_t& name) {
     name_ = name;
 }
 
-void controller_t::setBoard(letter_t cols, size_t rows) {
+void controller_t::setBoard(parameter_t scope) {
+    auto cols = scope[0];
+    auto rows = stoi(scope.substr(2));
     board_ = board_t(cols, rows);
 }
 
 void controller_t::build(const statement_t &item) {
-    cout << "paso 3 \n";
+
     vector<model_t> models_t = {'A', 'B', 'S', 'T'};
     auto model = models_t[randint(0, 3)];
-    cout << placeFleet(model);
-    //out(placeFleet(model));
+    cout << "paso 3 \n";
+    //cout << placeFleet(model);
+    out(placeFleet(model));
+    getBoard().print();
 }
 
 void controller_t::attack(const statement_t &item) {
 
+}
+
+void controller_t::setToken(const text_t& token) {
+    token_ = token;
+}
+
+board_t controller_t::getBoard() {
+    return board_t();
 }
