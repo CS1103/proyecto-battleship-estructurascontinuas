@@ -49,9 +49,17 @@ size_t board_t::get_rows() {
 
 bool board_t::isvalid(size_t row, size_t col){
     if (row<= rows_ && col <= cols_){
-        if (pCells_[col][row]->get_status()=="clear"){
+        cout << "ga \n";
+        pCells_[row][col]->get_status();
+        if (pCells_[row][col]->get_status()=="clear"){
             return true;
         }
+        else {
+            cout << "algo falla";
+        } 
+    }
+    else {
+        cout << "algo falla";
     }
     return false;
 }

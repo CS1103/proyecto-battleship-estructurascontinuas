@@ -27,155 +27,44 @@ layout_t calculate_layout(location_t location, orientation_t& orientation, model
     layout_t layout;
     status_t newStatus = "filled";
     status_t badStatus = "clear";
+    vector<model_t> models = {'T', 'S', 'B', 'A'};
     switch(orientation){
         case 'H':
-            switch(model) { //se podria resumir mejor cambiando la condicion?
-                case 'A':
-                    for (int i = 0; i < 4; i++) {
-                        if (!board.isvalid(rowt+i,colt)){
-                            if (i>0){
-                                for (int j=i-1;j>=0;j--){
-                                    layout.pop_back();
-                                    board.get_pCells()[colt][rowt+j]->set_status(badStatus);
-                                }
-                            }
-                            orientation = orientaciones[randint(0, 1)];
-                            cout << "fallo creacion\n";
-                            return calculate_layout(location,orientation,model,board,row_, col_);
-                        }
-                        else{
-                            layout.push_back(board.get_pCells()[colt][rowt+i]);
-                            board.get_pCells()[colt][rowt+i]->set_status(newStatus);
+            for (int i = 0; i <= distance(models.begin(), find(models.begin(), models.end(), model)); i++) {
+                if(!board.isvalid(rowt+i,colt)){
+                    if (i > 0) {
+                        for (int n = i - 1;n >= 0; n--){
+                            layout.pop_back();
+                            board.get_pCells()[rowt][colt+n]->set_status(badStatus);
                         }
                     }
-                    break;
-                case 'B':
-                    for (int i = 0; i < 3; i++) {
-                        if (!board.isvalid(rowt+i,colt)){
-                            if (i>0){
-                                for (int j=i-1;j>=0;j--){
-                                    layout.pop_back();
-                                    board.get_pCells()[colt][rowt+j]->set_status(badStatus);
-                                }
-                            }
-                            orientation = orientaciones[randint(0, 1)];
-                            cout << "fallo creacion\n";
-                            return calculate_layout(location,orientation,model,board,row_, col_);
-                        }
-                        else{
-                            layout.push_back(board.get_pCells()[colt][rowt+i]);
-                            board.get_pCells()[colt][rowt+i]->set_status(newStatus);
-                        }
-                    }
-                    break;
-                case 'S':
-                    for (int i = 0; i < 2; i++) {
-                        if (!board.isvalid(rowt+i,colt)){
-                            if (i>0){
-                                for (int j=i-1;j>=0;j--){
-                                    layout.pop_back();
-                                    board.get_pCells()[colt][rowt+j]->set_status(badStatus);
-                                }
-                            }
-                            orientation = orientaciones[randint(0, 1)];
-                            cout << "fallo creacion\n";
-                            return calculate_layout(location,orientation,model,board,row_, col_);
-                        }
-                        else{
-                            layout.push_back(board.get_pCells()[colt][rowt+i]);
-                            board.get_pCells()[colt][rowt+i]->set_status(newStatus);
-                        }
-                    }
-                    break;
-                case 'T':
-                    if (!board.isvalid(rowt,colt)){
-                        orientation = orientaciones[randint(0, 1)];
-                        cout << "fallo creacion\n";
-                        return calculate_layout(location,orientation,model,board,row_, col_);
-                    }
-                    else{
-                        layout.push_back(board.get_pCells()[colt][rowt]);
-                        board.get_pCells()[colt][rowt]->set_status(newStatus);
-                        break;
-                    }
-                default:
-                    cout << "Not valid model\n";
-                    break;
+                    orientation = orientaciones[randint(0, 1)];
+                    cout << "fallo creacion\n";
+                    return calculate_layout(location,orientation,model,board,row_, col_);
+                }
+                else {
+                    layout.push_back(board.get_pCells()[rowt][colt+i]);
+                    board.get_pCells()[rowt][colt+i]->set_status(newStatus);
+                }
             }
             break;
         case 'V':
-            switch(model) {
-                case 'A':
-                    for (int i = 0; i < 4; i++) {
-                        if (!board.isvalid(rowt,colt+i)){
-                            if (i>0){
-                                for (int j=i-1;j>=0;j--){
-                                    layout.pop_back();
-                                    board.get_pCells()[colt+j][rowt]->set_status(badStatus);
-                                }
-                            }
-                            orientation = orientaciones[randint(0, 1)];
-                            cout << "fallo creacion\n";
-                            return calculate_layout(location,orientation,model,board,row_, col_);
-                        }
-                        else{
-                            layout.push_back(board.get_pCells()[colt+i][rowt]);
-                            board.get_pCells()[colt+i][rowt]->set_status(newStatus);
+            for (int j = 0; j <= distance(models.begin(), find(models.begin(), models.end(), model)); j++) {
+                if(!board.isvalid(rowt,colt+j)){
+                    if (j > 0) {
+                        for (int n = j - 1;n >= 0; n--){
+                            layout.pop_back();
+                            board.get_pCells()[rowt+j][colt]->set_status(badStatus);
                         }
                     }
-                    break;
-                case 'B':
-                    for (int i = 0; i < 3; i++) {
-                        if (!board.isvalid(rowt,colt+i)){
-                            if (i>0){
-                                for (int j=i-1;j>=0;j--){
-                                    layout.pop_back();
-                                    board.get_pCells()[colt+j][rowt]->set_status(badStatus);
-                                }
-                            }
-                            orientation = orientaciones[randint(0, 1)];
-                            cout << "fallo creacion\n";
-                            return calculate_layout(location,orientation,model,board,row_, col_);
-                        }
-                        else{
-                            layout.push_back(board.get_pCells()[colt+i][rowt]);
-                            board.get_pCells()[colt+i][rowt]->set_status(newStatus);
-                        }
-                    }
-                    break;
-                case 'S':
-                    for (int i = 0; i < 2; i++) {
-                        if (!board.isvalid(rowt,colt+i)){
-                            if (i>0){
-                                for (int j=i-1;j>=0;j--){
-                                    layout.pop_back();
-                                    board.get_pCells()[colt+j][rowt]->set_status(badStatus);
-                                }
-                            }
-                            orientation = orientaciones[randint(0, 1)];
-                            cout << "fallo creacion\n";
-                            return calculate_layout(location,orientation,model,board,row_, col_);
-                        }
-                        else{
-                            layout.push_back(board.get_pCells()[colt+i][rowt]);
-                            board.get_pCells()[colt+i][rowt]->set_status(newStatus);
-                        }
-                    }
-                    break;
-                case 'T':
-                    if (!board.isvalid(rowt,colt)){
-                        orientation = orientaciones[randint(0, 1)];
-                        cout << "fallo creacion\n";
-                        return calculate_layout(location,orientation,model,board,row_, col_);
-                    }
-                    else{
-                        layout.push_back(board.get_pCells()[colt][rowt]);
-                        board.get_pCells()[colt][rowt]->set_status(newStatus);
-                        break;
-                    }
-                default:
-                    cout << "Not valid model\n";
-                    break;
+                    orientation = orientaciones[randint(0, 1)];
+                    cout << "fallo creacion\n";
+                    return calculate_layout(location,orientation,model,board,row_, col_);
+                }
+                else {
+                    layout.push_back(board.get_pCells()[rowt+j][colt]);
+                    board.get_pCells()[rowt+j][colt]->set_status(newStatus);
+                }
             }
             break;
         default:
