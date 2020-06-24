@@ -24,16 +24,16 @@ void controller_t::printBoard(){
 
 void out(const string& str) {
     ofstream file;
-    file.open("../out/FirstPlayer.out");
+    file.open("../in/FirstPlayer.in");
     file << str;
 }
 
-statement_t in () { // devuelve el comando del .in
+statement_t in () { // devuelve el comando del .out
     ifstream file;
     statement_t statement;
     string line;
     int idx = 0;
-    file.open("../in/FirstPlayer.in");
+    file.open("../out/FirstPlayer.out");
     getline (file,line);
     if (line == "HANDSHAKE\r"){
         statement.action = line;
@@ -61,14 +61,14 @@ statement_t in () { // devuelve el comando del .in
     return statement;
 }
 
-statement_t waitIn() {    // observer? espera hasta que exista un archivo.in
+statement_t waitIn() {    // observer? espera hasta que exista un archivo.out
     ifstream file;
-    file.open("../in/FirstPlayer.in");
+    file.open("../out/FirstPlayer.out");
     while (!file.is_open()) {
-        file.open("../in/FirstPlayer.in");
+        file.open("../out/FirstPlayer.out");
     }
     statement_t statement = in();
-    remove("../in/FirstPlayer.in"); //borra el .in
+    remove("../out/FirstPlayer.out"); //borra el .out
     return statement;
 }//guarda la informacion del .in
 
@@ -106,7 +106,7 @@ void controller_t::execute() {
     statements_.push(waitIn());
     while(!statements_.empty()){
         while( statements_.front().parameter != "WINNER\r") {
-            cout << "El .out fue recibido c: \n";
+            //cout << "El .out fue recibido c: \n";
             while(statements_.front().status == "REJECTED\r") {
                 handshakeIn("BattleBot");
                 break;

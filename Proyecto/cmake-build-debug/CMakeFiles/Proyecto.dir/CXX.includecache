@@ -54,9 +54,15 @@ regex
 utility
 -
 
-/cygdrive/c/Users/Acer/ProyectoPOO2/Proyecto/navy_t.cpp
-navy_t.h
-/cygdrive/c/Users/Acer/ProyectoPOO2/Proyecto/navy_t.h
+/cygdrive/c/Users/Acer/ProyectoPOO2/Proyecto/controller_t.cpp
+controller_t.h
+/cygdrive/c/Users/Acer/ProyectoPOO2/Proyecto/controller_t.h
+
+/cygdrive/c/Users/Acer/ProyectoPOO2/Proyecto/controller_t.h
+board_t.h
+/cygdrive/c/Users/Acer/ProyectoPOO2/Proyecto/board_t.h
+common_types.h
+/cygdrive/c/Users/Acer/ProyectoPOO2/Proyecto/common_types.h
 
 /cygdrive/c/Users/Acer/ProyectoPOO2/Proyecto/navy_t.h
 common_types.h
