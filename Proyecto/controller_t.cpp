@@ -14,7 +14,7 @@ void controller_t::printBoard() {
         cout << char(i) << " ";
     cout << endl;
     cout << setw(5) << "╔";
-    for (int j = 0; j < board_.get_rows()*2-1; j++)
+    for (int j = 0; j < board_.get_rows()*2; j++)
     {
         cout << "=";
     }
@@ -24,19 +24,19 @@ void controller_t::printBoard() {
             cout<< a++;
         else
             cout<< a++ << " ";
-        for (int i = 0; i < board_.get_cols()-65; i++){
+        for (int i = 0; i <= board_.get_cols()-65; i++){
             if (i==0) cout<< "║" << " ";
             if (board_.get_pCells()[j][i]->get_status() == "clear")
                 cout << "°"<< " ";
             else if (board_.get_pCells()[j][i]->get_status() == "filled")
                 cout << "█"<<" ";
-            if (i==board_.get_pCells()[j].size()-1)
+            if (i==board_.get_pCells()[j].size()+1)
                 cout<<"║";
         }
         cout << endl;
     }
     cout << setw(5) << "╚";
-    for (int k = 0; k < board_.get_rows()*2-1; k++) {
+    for (int k = 0; k < board_.get_rows()*2; k++) {
         cout << "=";
     }
     cout << "╝";

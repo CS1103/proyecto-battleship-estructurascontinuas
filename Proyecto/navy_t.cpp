@@ -31,10 +31,11 @@ layout_t calculate_layout(location_t location, orientation_t& orientation, model
     switch(orientation){
         case 'H':
             for (int i = 0; i <= distance(models.begin(), find(models.begin(), models.end(), model)); i++) {
-                if(!board.isvalid(rowt+i,colt)){
+                if(!board.isvalid(rowt,colt+i)){
                     if (i > 0) {
                         for (int n = i - 1;n >= 0; n--){
                             layout.pop_back();
+
                             board.get_pCells()[rowt][colt+n]->set_status(badStatus);
                         }
                     }
@@ -50,11 +51,12 @@ layout_t calculate_layout(location_t location, orientation_t& orientation, model
             break;
         case 'V':
             for (int j = 0; j <= distance(models.begin(), find(models.begin(), models.end(), model)); j++) {
-                if(!board.isvalid(rowt,colt+j)){
+
+                if(!board.isvalid(rowt+j,colt)){
                     if (j > 0) {
                         for (int n = j - 1;n >= 0; n--){
                             layout.pop_back();
-                            board.get_pCells()[rowt+j][colt]->set_status(badStatus);
+                            board.get_pCells()[rowt+n][colt]->set_status(badStatus);
                         }
                     }
                     orientation = orientaciones[randint(0, 1)];

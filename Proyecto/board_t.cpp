@@ -19,8 +19,8 @@ board_t::board_t(letter_t cols, size_t rows) {
     pCells_.resize(rows);
 
     for (int j = 0; j < cells_.size(); j++) {
-        cells_[j].resize(nCols);
-        pCells_[j].resize(nCols);
+        cells_[j].resize(nCols+1);
+        pCells_[j].resize(nCols+1);
         for (int i = 0; i < cells_[j].size(); i++) {
             cells_[j][i] = cell_t(i, j);
             pCells_[j][i] = &cells_[j][i];
@@ -48,15 +48,16 @@ size_t board_t::get_rows() {
 }
 
 bool board_t::isvalid(size_t row, size_t col){
-    if (row<= rows_ && col <= cols_){
-        cout << "ga \n";
-        pCells_[row][col]->get_status();
+    cout<< "tratando de entrar a la celda: " << char(col+65)<< "(" <<(col) << ")"<< "-" << row << endl;
+    //cout << pCells_[row-1][col]->get_status();
+    if (row < rows_ && col < cols_-1){
+        //pCells_[row-1][col]->get_status();
         if (pCells_[row][col]->get_status()=="clear"){
             return true;
         }
         else {
             cout << "algo falla";
-        } 
+        }
     }
     else {
         cout << "algo falla";
