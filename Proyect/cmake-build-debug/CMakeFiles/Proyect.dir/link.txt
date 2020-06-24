@@ -1,0 +1,1 @@
+/usr/bin/c++.exe -g  -Wl,--enable-auto-import CMakeFiles/Proyect.dir/main.cpp.o CMakeFiles/Proyect.dir/navy_t.cpp.o CMakeFiles/Proyect.dir/board_t.cpp.o CMakeFiles/Proyect.dir/cell_t.cpp.o CMakeFiles/Proyect.dir/controller_t.cpp.o  -o Proyect.exe -Wl,--out-implib,libProyect.dll.a -Wl,--major-image-version,0,--minor-image-version,0 
