@@ -34,6 +34,7 @@ public:
     void print() const;
     letter_t get_cols();
     size_t get_rows();
+    bool isvalid(size_t row, size_t col);
 };
 
 

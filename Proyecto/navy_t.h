@@ -19,12 +19,15 @@ private:
     orientation_t orientation_; // V, H
     layout_t layout_;
 public:
-    navy_t(position_t x, position_t y, model_t model, orientation_t orientation, board_t& board);
+    navy_t(position_t x, position_t y, model_t model, orientation_t& orientation, board_t& board,size_t& row_, char& col_);
     status_t get_status();
     void set_status(status_t& status);
     layout_t get_layout();
 
 };
+
+
+int randint(int a, int b);
 
 
 #endif //PROYECTO_NAVY_T_H

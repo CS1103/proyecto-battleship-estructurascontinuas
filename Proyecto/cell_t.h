@@ -9,7 +9,7 @@
 
 class cell_t {
 private:
-    coordinates_t coordinates_;
+    coordinates_t coordinates_; //vector de posiciones = size_t
     status_t status_ = "clear";
 public:
     cell_t();

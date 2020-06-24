@@ -23,6 +23,7 @@
 #include <regex>
 #include <utility>
 
+
 using namespace std;
 
 using position_t = size_t;
@@ -39,4 +40,6 @@ struct location_t {
 };
 
 using coordinates_t = vector<position_t>;
+
+
 #endif //PROYECTO_COMMON_TYPES_H

@@ -3,13 +3,8 @@
 //
 
 #include "controller_t.h"
-
-int randint(int a, int b){
-    std::random_device dev;
-    std::mt19937 rng(dev());
-    std::uniform_int_distribution<std::mt19937::result_type> dist6(a,b);
-    return dist6(rng);
-}
+//global variable
+vector<char> modelsava = {'A','B','B','S','S','S','T','T','T','T'};
 
 void out(const string& str) {
     ofstream file;
@@ -23,39 +18,30 @@ statement_t in () { // devuelve el comando del .in
     string line;
     int idx = 0;
     file.open("../in/FirstPlayer.in");
-    if (file.is_open    ())
-    {
+    getline (file,line);
+    if (line == "HANDSHAKE\r"){
+        statement.action = line;
         getline (file,line);
-        if (line == "HANDSHAKE\r"){
-            statement.action = line;
-
-            getline (file,line);
-            int pos = line.find('=')+1;
-            statement.status = line.substr(pos);
-
-            getline (file,line);
-            pos = line.find('=')+1;
-            statement.token = line.substr(pos);
-
-            getline (file,line);
-            pos = line.find('=')+1;
-            statement.parameter = line.substr(pos);
-        }
-
-        else {
-            statement.action = line;
-
-            getline (file,line);
-            int pos = line.find('=')+1;
-            statement.status = line.substr(pos);
-
-            getline (file,line);
-            pos = line.find('=')+1;
-            statement.parameter = line.substr(pos);
-        }
-        file.close();
+        int pos = line.find('=')+1;
+        statement.status = line.substr(pos);
+        getline (file,line);
+        pos = line.find('=')+1;
+        statement.token = line.substr(pos);
+        getline (file,line);
+        pos = line.find('=')+1;
+        statement.parameter = line.substr(pos);
     }
-    else{cout << "no se puede abrir";}
+    else {
+        statement.action = line;
+        getline (file,line);
+        int pos = line.find('=')+1;
+        statement.status = line.substr(pos);
+
+        getline (file,line);
+        pos = line.find('=')+1;
+        statement.parameter = line.substr(pos);
+    }
+    file.close();
     return statement;
 }
 
@@ -66,20 +52,20 @@ statement_t waitIn() {    // observer? espera hasta que exista un archivo.in
         file.open("../in/FirstPlayer.in");
     }
     statement_t statement = in();
-    remove("../in/FirstPlayer.in"); //borra el .out
+    remove("../in/FirstPlayer.in"); //borra el .in
     return statement;
 }//guarda la informacion del .in
 
 string controller_t::placeFleet(model_t& model){ // recibe el primer statement y
     string str = "TOKEN=" + token_ + "\n";
     cout << "token: " << token_ << "\n";
-    char cols = char(randint(65, board_.get_cols()));
-    size_t rows = randint(1, board_.get_rows());
-    cout << "coor: " << cols << "-" << rows << "\n";
-    vector<char> orientaciones = {'H', 'V'};
-    char orientacion = orientaciones[randint(0, 1)];
-    cout << "orientation: " << orientacion << "\n";
-    navy_t navy = navy_t(cols-65, rows, model, orientacion, board_);
+    //char cols = char(randint(65, board_.get_cols()));
+    //size_t rows = randint(1, board_.get_rows());
+    //cout << "coor: " << cols << "-" << rows << "\n";
+    char cols;
+    size_t rows;
+    char orientacion;
+    navy_t navy = navy_t(cols, rows, model, orientacion, board_,rows,cols); //no importan los primeros dos
     //creacion del string
     string coordinates;
     coordinates += cols;
@@ -87,7 +73,7 @@ string controller_t::placeFleet(model_t& model){ // recibe el primer statement y
     str += "PLACEFLEET=";
     str += model;
     str += "-" + coordinates + "-" + orientacion;
-    return str; // Devuelve un string para hacer push en el .out
+    return str; // Devuelve un string para hacer push en el .out - working
 }
 
 void controller_t::handshakeIn(const string& name) {
@@ -96,23 +82,22 @@ void controller_t::handshakeIn(const string& name) {
 }
 
 void controller_t::execute() {
+
     bool hPassed = false;
 
     handshakeIn("BattleBot");
     statements_.push(waitIn());
     while(!statements_.empty()){
-        //statement_t ste = statements_.front();
         cout << statements_.front().action << endl;
         cout << statements_.front().status << endl;
         cout << statements_.front().parameter << endl;
-
         while( statements_.front().parameter != "WINNER\r") {
-        cout << "paso 1 \n";
+            cout << "paso 1 \n";
             while(statements_.front().status == "REJECTED\r") {
                 handshakeIn("BattleBot");
                 break;
             }
-            while( statements_.front().action == "PLACEFLEET\r" || ( statements_.front().status == "ACCEPTED\r" && !hPassed)) {
+            while( statements_.front().action == "PLACEFLEET\r" || (statements_.front().status == "ACCEPTED\r" && !hPassed)) {
                 cout << "paso 2 \n";
                 if (!hPassed) {
                     setBoard(statements_.front().parameter);
@@ -130,7 +115,6 @@ void controller_t::execute() {
             statements_.push(waitIn());
         }
     }
-
 }
 
 void controller_t::load_tokens() {
@@ -152,13 +136,22 @@ void controller_t::setBoard(parameter_t scope) {
 }
 
 void controller_t::build(const statement_t &item) {
-
     vector<model_t> models_t = {'A', 'B', 'S', 'T'};
     auto model = models_t[randint(0, 3)];
-    cout << "paso 3 \n";
-    //cout << placeFleet(model);
-    out(placeFleet(model));
-    getBoard().print();
+    if (modelsava.empty()){
+        cout << "Flota completa" << endl;
+        return;
+    }
+    if (find(modelsava.begin(),modelsava.end(),model)!=modelsava.end()){
+        modelsava.erase(find(modelsava.begin(),modelsava.end(),model));
+        cout << "paso 3 \n";
+        //cout << placeFleet(model);
+        out(placeFleet(model));
+        getBoard().print();
+    }
+    else{
+        build(item);
+    }
 }
 
 void controller_t::attack(const statement_t &item) {

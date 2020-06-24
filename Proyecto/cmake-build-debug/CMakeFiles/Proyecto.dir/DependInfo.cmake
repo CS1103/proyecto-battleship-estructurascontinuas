@@ -4,11 +4,11 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/cygdrive/c/Users/Acer/ProyectoPOO2/Proyecto/board_t.cpp" "/cygdrive/c/Users/Acer/ProyectoPOO2/Proyecto/cmake-build-debug/CMakeFiles/Proyecto.dir/board_t.cpp.o"
-  "/cygdrive/c/Users/Acer/ProyectoPOO2/Proyecto/cell_t.cpp" "/cygdrive/c/Users/Acer/ProyectoPOO2/Proyecto/cmake-build-debug/CMakeFiles/Proyecto.dir/cell_t.cpp.o"
-  "/cygdrive/c/Users/Acer/ProyectoPOO2/Proyecto/controller_t.cpp" "/cygdrive/c/Users/Acer/ProyectoPOO2/Proyecto/cmake-build-debug/CMakeFiles/Proyecto.dir/controller_t.cpp.o"
-  "/cygdrive/c/Users/Acer/ProyectoPOO2/Proyecto/main.cpp" "/cygdrive/c/Users/Acer/ProyectoPOO2/Proyecto/cmake-build-debug/CMakeFiles/Proyecto.dir/main.cpp.o"
-  "/cygdrive/c/Users/Acer/ProyectoPOO2/Proyecto/navy_t.cpp" "/cygdrive/c/Users/Acer/ProyectoPOO2/Proyecto/cmake-build-debug/CMakeFiles/Proyecto.dir/navy_t.cpp.o"
+  "/home/familia/Documents/Hackprog/GitHub/ProyectoPOO2/Proyecto/board_t.cpp" "/home/familia/Documents/Hackprog/GitHub/ProyectoPOO2/Proyecto/cmake-build-debug/CMakeFiles/Proyecto.dir/board_t.cpp.o"
+  "/home/familia/Documents/Hackprog/GitHub/ProyectoPOO2/Proyecto/cell_t.cpp" "/home/familia/Documents/Hackprog/GitHub/ProyectoPOO2/Proyecto/cmake-build-debug/CMakeFiles/Proyecto.dir/cell_t.cpp.o"
+  "/home/familia/Documents/Hackprog/GitHub/ProyectoPOO2/Proyecto/controller_t.cpp" "/home/familia/Documents/Hackprog/GitHub/ProyectoPOO2/Proyecto/cmake-build-debug/CMakeFiles/Proyecto.dir/controller_t.cpp.o"
+  "/home/familia/Documents/Hackprog/GitHub/ProyectoPOO2/Proyecto/main.cpp" "/home/familia/Documents/Hackprog/GitHub/ProyectoPOO2/Proyecto/cmake-build-debug/CMakeFiles/Proyecto.dir/main.cpp.o"
+  "/home/familia/Documents/Hackprog/GitHub/ProyectoPOO2/Proyecto/navy_t.cpp" "/home/familia/Documents/Hackprog/GitHub/ProyectoPOO2/Proyecto/cmake-build-debug/CMakeFiles/Proyecto.dir/navy_t.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

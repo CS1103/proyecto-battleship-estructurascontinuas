@@ -12,7 +12,6 @@ board_t::board_t() {
 board_t::board_t(letter_t cols, size_t rows) {
     cols_ = cols;
     rows_ = rows;
-
     size_t nCols = cols_ - 65;
     //cells_t cells;
 
@@ -58,4 +57,11 @@ size_t board_t::get_rows() {
     return rows_;
 }
 
-
+bool board_t::isvalid(size_t row, size_t col){
+    if (row<= rows_ && col <= cols_){
+        if (pCells_[col][row]->get_status()=="clear"){
+            return true;
+        }
+    }
+    return false;
+}

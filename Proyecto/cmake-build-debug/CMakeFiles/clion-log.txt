@@ -1,4 +1,4 @@
-C:\Users\Acer\AppData\Local\JetBrains\CLion2020.1\cygwin_cmake\bin\cmake.exe -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /cygdrive/c/Users/Acer/ProyectoPOO2/Proyecto
+/home/familia/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/201.7846.88/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/familia/Documents/Hackprog/GitHub/ProyectoPOO2/Proyecto
 -- Configuring done
 -- Generating done
--- Build files have been written to: /cygdrive/c/Users/Acer/ProyectoPOO2/Proyecto/cmake-build-debug
+-- Build files have been written to: /home/familia/Documents/Hackprog/GitHub/ProyectoPOO2/Proyecto/cmake-build-debug
