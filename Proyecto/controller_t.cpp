@@ -6,20 +6,41 @@
 //global variable
 vector<char> modelsava = {'A','B','B','S','S','S','T','T','T','T'};
 
-void controller_t::printBoard(){
 
+void controller_t::printBoard() {
+    int a =1;
+    cout << setw(4);
+    for (int i = 65; i <= board_.get_cols(); i++)
+        cout << char(i) << " ";
+    cout << endl;
+    cout << setw(5) << "╔";
+    for (int j = 0; j < board_.get_rows()*2-1; j++)
+    {
+        cout << "=";
+    }
+    cout << "╗"<<endl;
     for (int j = 0; j < board_.get_rows(); j++) {
-
+        if (a > 9)
+            cout<< a++;
+        else
+            cout<< a++ << " ";
         for (int i = 0; i < board_.get_cols()-65; i++){
+            if (i==0) cout<< "║" << " ";
             if (board_.get_pCells()[j][i]->get_status() == "clear")
-            cout << "...";
-
+                cout << "°"<< " ";
             else if (board_.get_pCells()[j][i]->get_status() == "filled")
-                cout << "[ ]";
+                cout << "█"<<" ";
+            if (i==board_.get_pCells()[j].size()-1)
+                cout<<"║";
         }
         cout << endl;
     }
-    cout << "\n";
+    cout << setw(5) << "╚";
+    for (int k = 0; k < board_.get_rows()*2-1; k++) {
+        cout << "=";
+    }
+    cout << "╝";
+    cout << endl;
 }
 
 void out(const string& str) {
@@ -165,6 +186,8 @@ void controller_t::build(const statement_t &item) {
         modelsava.erase(find(modelsava.begin(),modelsava.end(),model));
         cout << "Entrando a creacion de barco \n";
         auto str =  placeFleet(model);
+        cout << "------------------------------------\n";
+        cout << "TABLERO \n";
         printBoard();
         out(str);
 
