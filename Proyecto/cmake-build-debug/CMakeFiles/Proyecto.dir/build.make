@@ -34,19 +34,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /home/familia/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/201.7846.88/bin/cmake/linux/bin/cmake
+CMAKE_COMMAND = /cygdrive/c/Users/Acer/AppData/Local/JetBrains/CLion2020.1/cygwin_cmake/bin/cmake.exe
 
 # The command to remove a file.
-RM = /home/familia/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/201.7846.88/bin/cmake/linux/bin/cmake -E remove -f
+RM = /cygdrive/c/Users/Acer/AppData/Local/JetBrains/CLion2020.1/cygwin_cmake/bin/cmake.exe -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/familia/Documents/Hackprog/GitHub/ProyectoPOO2/Proyecto
+CMAKE_SOURCE_DIR = /cygdrive/c/Users/Acer/ProyectoPOO2/Proyecto
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/familia/Documents/Hackprog/GitHub/ProyectoPOO2/Proyecto/cmake-build-debug
+CMAKE_BINARY_DIR = /cygdrive/c/Users/Acer/ProyectoPOO2/Proyecto/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/Proyecto.dir/depend.make
@@ -59,68 +59,68 @@ include CMakeFiles/Proyecto.dir/flags.make
 
 CMakeFiles/Proyecto.dir/main.cpp.o: CMakeFiles/Proyecto.dir/flags.make
 CMakeFiles/Proyecto.dir/main.cpp.o: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/familia/Documents/Hackprog/GitHub/ProyectoPOO2/Proyecto/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Proyecto.dir/main.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Proyecto.dir/main.cpp.o -c /home/familia/Documents/Hackprog/GitHub/ProyectoPOO2/Proyecto/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/c/Users/Acer/ProyectoPOO2/Proyecto/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Proyecto.dir/main.cpp.o"
+	/usr/bin/c++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Proyecto.dir/main.cpp.o -c /cygdrive/c/Users/Acer/ProyectoPOO2/Proyecto/main.cpp
 
 CMakeFiles/Proyecto.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Proyecto.dir/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/familia/Documents/Hackprog/GitHub/ProyectoPOO2/Proyecto/main.cpp > CMakeFiles/Proyecto.dir/main.cpp.i
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /cygdrive/c/Users/Acer/ProyectoPOO2/Proyecto/main.cpp > CMakeFiles/Proyecto.dir/main.cpp.i
 
 CMakeFiles/Proyecto.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Proyecto.dir/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/familia/Documents/Hackprog/GitHub/ProyectoPOO2/Proyecto/main.cpp -o CMakeFiles/Proyecto.dir/main.cpp.s
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cygdrive/c/Users/Acer/ProyectoPOO2/Proyecto/main.cpp -o CMakeFiles/Proyecto.dir/main.cpp.s
 
 CMakeFiles/Proyecto.dir/cell_t.cpp.o: CMakeFiles/Proyecto.dir/flags.make
 CMakeFiles/Proyecto.dir/cell_t.cpp.o: ../cell_t.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/familia/Documents/Hackprog/GitHub/ProyectoPOO2/Proyecto/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Proyecto.dir/cell_t.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Proyecto.dir/cell_t.cpp.o -c /home/familia/Documents/Hackprog/GitHub/ProyectoPOO2/Proyecto/cell_t.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/c/Users/Acer/ProyectoPOO2/Proyecto/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Proyecto.dir/cell_t.cpp.o"
+	/usr/bin/c++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Proyecto.dir/cell_t.cpp.o -c /cygdrive/c/Users/Acer/ProyectoPOO2/Proyecto/cell_t.cpp
 
 CMakeFiles/Proyecto.dir/cell_t.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Proyecto.dir/cell_t.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/familia/Documents/Hackprog/GitHub/ProyectoPOO2/Proyecto/cell_t.cpp > CMakeFiles/Proyecto.dir/cell_t.cpp.i
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /cygdrive/c/Users/Acer/ProyectoPOO2/Proyecto/cell_t.cpp > CMakeFiles/Proyecto.dir/cell_t.cpp.i
 
 CMakeFiles/Proyecto.dir/cell_t.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Proyecto.dir/cell_t.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/familia/Documents/Hackprog/GitHub/ProyectoPOO2/Proyecto/cell_t.cpp -o CMakeFiles/Proyecto.dir/cell_t.cpp.s
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cygdrive/c/Users/Acer/ProyectoPOO2/Proyecto/cell_t.cpp -o CMakeFiles/Proyecto.dir/cell_t.cpp.s
 
 CMakeFiles/Proyecto.dir/navy_t.cpp.o: CMakeFiles/Proyecto.dir/flags.make
 CMakeFiles/Proyecto.dir/navy_t.cpp.o: ../navy_t.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/familia/Documents/Hackprog/GitHub/ProyectoPOO2/Proyecto/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Proyecto.dir/navy_t.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Proyecto.dir/navy_t.cpp.o -c /home/familia/Documents/Hackprog/GitHub/ProyectoPOO2/Proyecto/navy_t.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/c/Users/Acer/ProyectoPOO2/Proyecto/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Proyecto.dir/navy_t.cpp.o"
+	/usr/bin/c++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Proyecto.dir/navy_t.cpp.o -c /cygdrive/c/Users/Acer/ProyectoPOO2/Proyecto/navy_t.cpp
 
 CMakeFiles/Proyecto.dir/navy_t.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Proyecto.dir/navy_t.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/familia/Documents/Hackprog/GitHub/ProyectoPOO2/Proyecto/navy_t.cpp > CMakeFiles/Proyecto.dir/navy_t.cpp.i
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /cygdrive/c/Users/Acer/ProyectoPOO2/Proyecto/navy_t.cpp > CMakeFiles/Proyecto.dir/navy_t.cpp.i
 
 CMakeFiles/Proyecto.dir/navy_t.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Proyecto.dir/navy_t.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/familia/Documents/Hackprog/GitHub/ProyectoPOO2/Proyecto/navy_t.cpp -o CMakeFiles/Proyecto.dir/navy_t.cpp.s
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cygdrive/c/Users/Acer/ProyectoPOO2/Proyecto/navy_t.cpp -o CMakeFiles/Proyecto.dir/navy_t.cpp.s
 
 CMakeFiles/Proyecto.dir/board_t.cpp.o: CMakeFiles/Proyecto.dir/flags.make
 CMakeFiles/Proyecto.dir/board_t.cpp.o: ../board_t.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/familia/Documents/Hackprog/GitHub/ProyectoPOO2/Proyecto/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Proyecto.dir/board_t.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Proyecto.dir/board_t.cpp.o -c /home/familia/Documents/Hackprog/GitHub/ProyectoPOO2/Proyecto/board_t.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/c/Users/Acer/ProyectoPOO2/Proyecto/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Proyecto.dir/board_t.cpp.o"
+	/usr/bin/c++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Proyecto.dir/board_t.cpp.o -c /cygdrive/c/Users/Acer/ProyectoPOO2/Proyecto/board_t.cpp
 
 CMakeFiles/Proyecto.dir/board_t.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Proyecto.dir/board_t.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/familia/Documents/Hackprog/GitHub/ProyectoPOO2/Proyecto/board_t.cpp > CMakeFiles/Proyecto.dir/board_t.cpp.i
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /cygdrive/c/Users/Acer/ProyectoPOO2/Proyecto/board_t.cpp > CMakeFiles/Proyecto.dir/board_t.cpp.i
 
 CMakeFiles/Proyecto.dir/board_t.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Proyecto.dir/board_t.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/familia/Documents/Hackprog/GitHub/ProyectoPOO2/Proyecto/board_t.cpp -o CMakeFiles/Proyecto.dir/board_t.cpp.s
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cygdrive/c/Users/Acer/ProyectoPOO2/Proyecto/board_t.cpp -o CMakeFiles/Proyecto.dir/board_t.cpp.s
 
 CMakeFiles/Proyecto.dir/controller_t.cpp.o: CMakeFiles/Proyecto.dir/flags.make
 CMakeFiles/Proyecto.dir/controller_t.cpp.o: ../controller_t.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/familia/Documents/Hackprog/GitHub/ProyectoPOO2/Proyecto/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/Proyecto.dir/controller_t.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Proyecto.dir/controller_t.cpp.o -c /home/familia/Documents/Hackprog/GitHub/ProyectoPOO2/Proyecto/controller_t.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/c/Users/Acer/ProyectoPOO2/Proyecto/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/Proyecto.dir/controller_t.cpp.o"
+	/usr/bin/c++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Proyecto.dir/controller_t.cpp.o -c /cygdrive/c/Users/Acer/ProyectoPOO2/Proyecto/controller_t.cpp
 
 CMakeFiles/Proyecto.dir/controller_t.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Proyecto.dir/controller_t.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/familia/Documents/Hackprog/GitHub/ProyectoPOO2/Proyecto/controller_t.cpp > CMakeFiles/Proyecto.dir/controller_t.cpp.i
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /cygdrive/c/Users/Acer/ProyectoPOO2/Proyecto/controller_t.cpp > CMakeFiles/Proyecto.dir/controller_t.cpp.i
 
 CMakeFiles/Proyecto.dir/controller_t.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Proyecto.dir/controller_t.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/familia/Documents/Hackprog/GitHub/ProyectoPOO2/Proyecto/controller_t.cpp -o CMakeFiles/Proyecto.dir/controller_t.cpp.s
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cygdrive/c/Users/Acer/ProyectoPOO2/Proyecto/controller_t.cpp -o CMakeFiles/Proyecto.dir/controller_t.cpp.s
 
 # Object files for target Proyecto
 Proyecto_OBJECTS = \
@@ -133,18 +133,18 @@ Proyecto_OBJECTS = \
 # External object files for target Proyecto
 Proyecto_EXTERNAL_OBJECTS =
 
-Proyecto: CMakeFiles/Proyecto.dir/main.cpp.o
-Proyecto: CMakeFiles/Proyecto.dir/cell_t.cpp.o
-Proyecto: CMakeFiles/Proyecto.dir/navy_t.cpp.o
-Proyecto: CMakeFiles/Proyecto.dir/board_t.cpp.o
-Proyecto: CMakeFiles/Proyecto.dir/controller_t.cpp.o
-Proyecto: CMakeFiles/Proyecto.dir/build.make
-Proyecto: CMakeFiles/Proyecto.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/familia/Documents/Hackprog/GitHub/ProyectoPOO2/Proyecto/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable Proyecto"
+Proyecto.exe: CMakeFiles/Proyecto.dir/main.cpp.o
+Proyecto.exe: CMakeFiles/Proyecto.dir/cell_t.cpp.o
+Proyecto.exe: CMakeFiles/Proyecto.dir/navy_t.cpp.o
+Proyecto.exe: CMakeFiles/Proyecto.dir/board_t.cpp.o
+Proyecto.exe: CMakeFiles/Proyecto.dir/controller_t.cpp.o
+Proyecto.exe: CMakeFiles/Proyecto.dir/build.make
+Proyecto.exe: CMakeFiles/Proyecto.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/cygdrive/c/Users/Acer/ProyectoPOO2/Proyecto/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable Proyecto.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Proyecto.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
-CMakeFiles/Proyecto.dir/build: Proyecto
+CMakeFiles/Proyecto.dir/build: Proyecto.exe
 
 .PHONY : CMakeFiles/Proyecto.dir/build
 
@@ -153,6 +153,6 @@ CMakeFiles/Proyecto.dir/clean:
 .PHONY : CMakeFiles/Proyecto.dir/clean
 
 CMakeFiles/Proyecto.dir/depend:
-	cd /home/familia/Documents/Hackprog/GitHub/ProyectoPOO2/Proyecto/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/familia/Documents/Hackprog/GitHub/ProyectoPOO2/Proyecto /home/familia/Documents/Hackprog/GitHub/ProyectoPOO2/Proyecto /home/familia/Documents/Hackprog/GitHub/ProyectoPOO2/Proyecto/cmake-build-debug /home/familia/Documents/Hackprog/GitHub/ProyectoPOO2/Proyecto/cmake-build-debug /home/familia/Documents/Hackprog/GitHub/ProyectoPOO2/Proyecto/cmake-build-debug/CMakeFiles/Proyecto.dir/DependInfo.cmake --color=$(COLOR)
+	cd /cygdrive/c/Users/Acer/ProyectoPOO2/Proyecto/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /cygdrive/c/Users/Acer/ProyectoPOO2/Proyecto /cygdrive/c/Users/Acer/ProyectoPOO2/Proyecto /cygdrive/c/Users/Acer/ProyectoPOO2/Proyecto/cmake-build-debug /cygdrive/c/Users/Acer/ProyectoPOO2/Proyecto/cmake-build-debug /cygdrive/c/Users/Acer/ProyectoPOO2/Proyecto/cmake-build-debug/CMakeFiles/Proyecto.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/Proyecto.dir/depend
 

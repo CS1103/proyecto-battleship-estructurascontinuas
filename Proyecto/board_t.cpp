@@ -32,17 +32,7 @@ pCells_t board_t::get_pCells() {
     return pCells_;
 }
 
-void board_t::print() const {
-    for (int j = 0; j < cells_.size(); j++) {
-        for (int i = 0; i < cells_[j].size(); i++){
-            if (pCells_[j][i]->get_status() == "clear")
-                cout << "...";
-            else if (pCells_[j][i]->get_status() == "filled")
-                cout << "[ ]";
-        }
-        cout << endl;
-    }
-}
+
 
 void board_t::add_fleet(navy_t& navy) {
     fleet_.push_back(navy);

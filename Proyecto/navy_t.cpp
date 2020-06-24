@@ -13,11 +13,16 @@ int randint(int a, int b){
 }
 
 layout_t calculate_layout(location_t location, orientation_t& orientation, model_t model, board_t& board, size_t& row_, char& col_) {
+    cout << "------------------------------------\n";
+    cout << "Creando barco\n";
     vector<char> orientaciones = {'H', 'V'};
     orientation = orientaciones[randint(0, 1)];
     size_t colt = randint(65, board.get_cols()) - 65;
     col_ = char(colt+65);
     row_ = randint(1, board.get_rows());
+    cout << "Posible tipo:" << model << endl;
+    cout << "Posible orientacion:" << orientation << endl;
+    cout << "Posible posicion:" << col_ << "-" << row_ <<endl;
     size_t rowt = row_ -1;
     layout_t layout;
     status_t newStatus = "filled";
@@ -35,6 +40,7 @@ layout_t calculate_layout(location_t location, orientation_t& orientation, model
                                 }
                             }
                             orientation = orientaciones[randint(0, 1)];
+                            cout << "fallo creacion\n";
                             return calculate_layout(location,orientation,model,board,row_, col_);
                         }
                         else{
@@ -53,6 +59,7 @@ layout_t calculate_layout(location_t location, orientation_t& orientation, model
                                 }
                             }
                             orientation = orientaciones[randint(0, 1)];
+                            cout << "fallo creacion\n";
                             return calculate_layout(location,orientation,model,board,row_, col_);
                         }
                         else{
@@ -71,6 +78,7 @@ layout_t calculate_layout(location_t location, orientation_t& orientation, model
                                 }
                             }
                             orientation = orientaciones[randint(0, 1)];
+                            cout << "fallo creacion\n";
                             return calculate_layout(location,orientation,model,board,row_, col_);
                         }
                         else{
@@ -82,6 +90,7 @@ layout_t calculate_layout(location_t location, orientation_t& orientation, model
                 case 'T':
                     if (!board.isvalid(rowt,colt)){
                         orientation = orientaciones[randint(0, 1)];
+                        cout << "fallo creacion\n";
                         return calculate_layout(location,orientation,model,board,row_, col_);
                     }
                     else{
@@ -106,6 +115,7 @@ layout_t calculate_layout(location_t location, orientation_t& orientation, model
                                 }
                             }
                             orientation = orientaciones[randint(0, 1)];
+                            cout << "fallo creacion\n";
                             return calculate_layout(location,orientation,model,board,row_, col_);
                         }
                         else{
@@ -124,6 +134,7 @@ layout_t calculate_layout(location_t location, orientation_t& orientation, model
                                 }
                             }
                             orientation = orientaciones[randint(0, 1)];
+                            cout << "fallo creacion\n";
                             return calculate_layout(location,orientation,model,board,row_, col_);
                         }
                         else{
@@ -142,6 +153,7 @@ layout_t calculate_layout(location_t location, orientation_t& orientation, model
                                 }
                             }
                             orientation = orientaciones[randint(0, 1)];
+                            cout << "fallo creacion\n";
                             return calculate_layout(location,orientation,model,board,row_, col_);
                         }
                         else{
@@ -153,6 +165,7 @@ layout_t calculate_layout(location_t location, orientation_t& orientation, model
                 case 'T':
                     if (!board.isvalid(rowt,colt)){
                         orientation = orientaciones[randint(0, 1)];
+                        cout << "fallo creacion\n";
                         return calculate_layout(location,orientation,model,board,row_, col_);
                     }
                     else{
@@ -169,6 +182,8 @@ layout_t calculate_layout(location_t location, orientation_t& orientation, model
             cout << "Not valid oritenation\n";
             break;
     }
+    cout << "CREADO CON EXITO\n";
+    cout << "------------------------------------\n";
     return layout;
 }
 

@@ -35,6 +35,7 @@ public:
     board_t getBoard();
     void setToken(const text_t& token);
     void execute();
+    void printBoard();
     void load_tokens();
     void save_tokens();
 };

@@ -31,7 +31,7 @@ public:
     board_t(letter_t cols, size_t rows);
     pCells_t get_pCells();
     void add_fleet(navy_t& navy);
-    void print() const;
+    void print();
     letter_t get_cols();
     size_t get_rows();
     bool isvalid(size_t row, size_t col);

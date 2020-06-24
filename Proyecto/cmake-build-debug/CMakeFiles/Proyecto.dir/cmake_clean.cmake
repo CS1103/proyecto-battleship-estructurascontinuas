@@ -4,8 +4,9 @@ file(REMOVE_RECURSE
   "CMakeFiles/Proyecto.dir/controller_t.cpp.o"
   "CMakeFiles/Proyecto.dir/main.cpp.o"
   "CMakeFiles/Proyecto.dir/navy_t.cpp.o"
-  "Proyecto"
+  "Proyecto.exe"
   "Proyecto.pdb"
+  "libProyecto.dll.a"
 )
 
 # Per-language clean rules from dependency scanning.

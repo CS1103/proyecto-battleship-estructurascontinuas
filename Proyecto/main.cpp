@@ -5,14 +5,6 @@
 
 using namespace std;
 
-
-// Para que funcione, corre el codigo, COPIA el .out del directorio dentro de out
-//el programa esperara hasta que haya un .out en el la carpeta out, leera lo que esta dentro y dps eliminara el out
-
-
-
-
-
 int main() {
     //handshakeIn("dinamita team");
     //statement_t st = waitIn();

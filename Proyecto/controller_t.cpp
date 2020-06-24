@@ -6,6 +6,22 @@
 //global variable
 vector<char> modelsava = {'A','B','B','S','S','S','T','T','T','T'};
 
+void controller_t::printBoard(){
+
+    for (int j = 0; j < board_.get_rows(); j++) {
+
+        for (int i = 0; i < board_.get_cols()-65; i++){
+            if (board_.get_pCells()[j][i]->get_status() == "clear")
+            cout << "...";
+
+            else if (board_.get_pCells()[j][i]->get_status() == "filled")
+                cout << "[ ]";
+        }
+        cout << endl;
+    }
+    cout << "\n";
+}
+
 void out(const string& str) {
     ofstream file;
     file.open("../out/FirstPlayer.out");
@@ -58,14 +74,15 @@ statement_t waitIn() {    // observer? espera hasta que exista un archivo.in
 
 string controller_t::placeFleet(model_t& model){ // recibe el primer statement y
     string str = "TOKEN=" + token_ + "\n";
-    cout << "token: " << token_ << "\n";
-    //char cols = char(randint(65, board_.get_cols()));
-    //size_t rows = randint(1, board_.get_rows());
-    //cout << "coor: " << cols << "-" << rows << "\n";
     char cols;
     size_t rows;
     char orientacion;
-    navy_t navy = navy_t(cols, rows, model, orientacion, board_,rows,cols); //no importan los primeros dos
+    navy_t navy = navy_t(cols, rows, model, orientacion, board_ ,rows,cols); //no importan los primeros dos
+    //char cols = char(randint(65, board_.get_cols()));
+    //size_t rows = randint(1, board_.get_rows());
+    cout << "model " << model << "\n";
+    cout << "coor: " << cols << "-" << rows << "\n";
+    cout << "orientation " << orientacion << "\n";
     //creacion del string
     string coordinates;
     coordinates += cols;
@@ -88,20 +105,22 @@ void controller_t::execute() {
     handshakeIn("BattleBot");
     statements_.push(waitIn());
     while(!statements_.empty()){
-        cout << statements_.front().action << endl;
-        cout << statements_.front().status << endl;
-        cout << statements_.front().parameter << endl;
         while( statements_.front().parameter != "WINNER\r") {
-            cout << "paso 1 \n";
+            cout << "El .out fue recibido c: \n";
             while(statements_.front().status == "REJECTED\r") {
                 handshakeIn("BattleBot");
                 break;
             }
             while( statements_.front().action == "PLACEFLEET\r" || (statements_.front().status == "ACCEPTED\r" && !hPassed)) {
-                cout << "paso 2 \n";
+
                 if (!hPassed) {
                     setBoard(statements_.front().parameter);
+                    cout << "Board inicializado con:\n";
+                    cout << board_.get_rows() <<" rows\n";
+                    cout << board_.get_cols() <<" cols\n";
                     setToken(statements_.front().token);
+                    cout << "Controller inicializado con:\n";
+                    cout << "token: " << token_ <<"\n";
                 }
                 hPassed = true;
                 build( statements_.front());
@@ -144,10 +163,11 @@ void controller_t::build(const statement_t &item) {
     }
     if (find(modelsava.begin(),modelsava.end(),model)!=modelsava.end()){
         modelsava.erase(find(modelsava.begin(),modelsava.end(),model));
-        cout << "paso 3 \n";
-        //cout << placeFleet(model);
-        out(placeFleet(model));
-        getBoard().print();
+        cout << "Entrando a creacion de barco \n";
+        auto str =  placeFleet(model);
+        printBoard();
+        out(str);
+
     }
     else{
         build(item);

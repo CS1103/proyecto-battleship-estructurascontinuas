@@ -6,19 +6,19 @@
 
 #IncludeRegexTransform: 
 
-/home/familia/Documents/Hackprog/GitHub/ProyectoPOO2/Proyecto/board_t.h
+/cygdrive/c/Users/Acer/ProyectoPOO2/Proyecto/board_t.h
 common_types.h
-/home/familia/Documents/Hackprog/GitHub/ProyectoPOO2/Proyecto/common_types.h
+/cygdrive/c/Users/Acer/ProyectoPOO2/Proyecto/common_types.h
 cell_t.h
-/home/familia/Documents/Hackprog/GitHub/ProyectoPOO2/Proyecto/cell_t.h
+/cygdrive/c/Users/Acer/ProyectoPOO2/Proyecto/cell_t.h
 navy_t.h
-/home/familia/Documents/Hackprog/GitHub/ProyectoPOO2/Proyecto/navy_t.h
+/cygdrive/c/Users/Acer/ProyectoPOO2/Proyecto/navy_t.h
 
-/home/familia/Documents/Hackprog/GitHub/ProyectoPOO2/Proyecto/cell_t.h
+/cygdrive/c/Users/Acer/ProyectoPOO2/Proyecto/cell_t.h
 common_types.h
-/home/familia/Documents/Hackprog/GitHub/ProyectoPOO2/Proyecto/common_types.h
+/cygdrive/c/Users/Acer/ProyectoPOO2/Proyecto/common_types.h
 
-/home/familia/Documents/Hackprog/GitHub/ProyectoPOO2/Proyecto/common_types.h
+/cygdrive/c/Users/Acer/ProyectoPOO2/Proyecto/common_types.h
 map
 -
 vector
@@ -54,25 +54,15 @@ regex
 utility
 -
 
-/home/familia/Documents/Hackprog/GitHub/ProyectoPOO2/Proyecto/controller_t.cpp
-controller_t.h
-/home/familia/Documents/Hackprog/GitHub/ProyectoPOO2/Proyecto/controller_t.h
-
-/home/familia/Documents/Hackprog/GitHub/ProyectoPOO2/Proyecto/controller_t.h
-board_t.h
-/home/familia/Documents/Hackprog/GitHub/ProyectoPOO2/Proyecto/board_t.h
-common_types.h
-/home/familia/Documents/Hackprog/GitHub/ProyectoPOO2/Proyecto/common_types.h
-
-/home/familia/Documents/Hackprog/GitHub/ProyectoPOO2/Proyecto/navy_t.cpp
+/cygdrive/c/Users/Acer/ProyectoPOO2/Proyecto/navy_t.cpp
 navy_t.h
-/home/familia/Documents/Hackprog/GitHub/ProyectoPOO2/Proyecto/navy_t.h
+/cygdrive/c/Users/Acer/ProyectoPOO2/Proyecto/navy_t.h
 
-/home/familia/Documents/Hackprog/GitHub/ProyectoPOO2/Proyecto/navy_t.h
+/cygdrive/c/Users/Acer/ProyectoPOO2/Proyecto/navy_t.h
 common_types.h
-/home/familia/Documents/Hackprog/GitHub/ProyectoPOO2/Proyecto/common_types.h
+/cygdrive/c/Users/Acer/ProyectoPOO2/Proyecto/common_types.h
 cell_t.h
-/home/familia/Documents/Hackprog/GitHub/ProyectoPOO2/Proyecto/cell_t.h
+/cygdrive/c/Users/Acer/ProyectoPOO2/Proyecto/cell_t.h
 board_t.h
-/home/familia/Documents/Hackprog/GitHub/ProyectoPOO2/Proyecto/board_t.h
+/cygdrive/c/Users/Acer/ProyectoPOO2/Proyecto/board_t.h
 
