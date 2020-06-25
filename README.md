@@ -1,4 +1,4 @@
-<center><a href="Utec"><img src="https://camo.githubusercontent.com/9809861efbc42f59a67d8a622b79b0a71722d35c/687474703a2f2f312e62702e626c6f6773706f742e636f6d2f5f7644585969424b4e4855302f5230512d434d6f654c55492f414141414141414142726b2f6d5457315258367a314b412f733430302f426174746c65736869705f4c6f676f2e6a7067" title="Utec" alt="Utec"></a></center>
+<a href="Utec"><img src="https://camo.githubusercontent.com/9809861efbc42f59a67d8a622b79b0a71722d35c/687474703a2f2f312e62702e626c6f6773706f742e636f6d2f5f7644585969424b4e4855302f5230512d434d6f654c55492f414141414141414142726b2f6d5457315258367a314b412f733430302f426174746c65736869705f4c6f676f2e6a7067" title="Utec" alt="Utec"></a>
 
 # Battleship
 
@@ -11,8 +11,8 @@ Para el proceso de comunicación entre el servidor y los jugadores se contará c
 
 
 > Indicaciones
-1. Para esta versión preliminar del proyecto se seguirán las siguientes indicaciones para su ejecución:
-Inicialmente las carpetas /in y /out deben encontrarse vacías. El programa generará el primer archivo .in que corresponde a la acción Handshake. Dado que aún no se realiza la conexión con el servidor, de manera manual agregaremos el archivo .out (creado en la carpeta /manual/1) a la carpeta /out (simulando la respuesta del servidor).
+- Para esta versión preliminar del proyecto se seguirán las siguientes indicaciones para su ejecución:
+1. Inicialmente las carpetas /in y /out deben encontrarse vacías. El programa generará el primer archivo .in que corresponde a la acción Handshake. Dado que aún no se realiza la conexión con el servidor, de manera manual agregaremos el archivo .out (creado en la carpeta /manual/1) a la carpeta /out (simulando la respuesta del servidor).
 
 2. Después de la aceptación del Handshake, el programa nos indicará que nos encontramos en el paso 2 que corresponde a colocar las naves en el tablero. Después de que el programa nos genere el primer .in en la carpeta /in, de manera manual copiaremos el archivo .out de la carpeta /manual/2 en la carpeta /out simulando la respuesta del servidor, que nos indicará si la posición ingresada es aceptada y se actualizará el tablero en un caso favorable. El proceso se repite hasta agregar a todas las naves en el tablero.
 
