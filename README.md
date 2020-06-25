@@ -16,6 +16,11 @@ Para el proceso de comunicación entre el servidor y los jugadores se contará c
 
 2. Después de la aceptación del Handshake, el programa nos indicará que nos encontramos en el paso 2 que corresponde a colocar las naves en el tablero. Después de que el programa nos genere el primer .in en la carpeta /in, de manera manual copiaremos el archivo .out de la carpeta /manual/2 en la carpeta /out simulando la respuesta del servidor, que nos indicará si la posición ingresada es aceptada y se actualizará el tablero en un caso favorable. El proceso se repite hasta agregar a todas las naves en el tablero.
 
+## Code insights
+
+Para desarrollar el proyecto se implementaron las clases nave, celda, tablero y observador con el fin de modularizar las acciones de el programa y permitir una interacción limpia entre las mismas.
+Además de ellos, se desarrollaron dos algoritmos de validación recursivos, uno que verificaba el input del modelo de la nave y otro que verificaba la posición de cada nave, lo que implicaba validar el espacio y si este estaba vacío o no.
+
 ## Equipo
 
 > Contribuyentes
