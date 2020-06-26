@@ -3,7 +3,9 @@
 //global variable
 vector<char> modelsava = {'A','B','B','S','S','S','T','T','T','T'};
 
+
 int n = 1;
+
 
 void controller_t::printBoard() {
     int a =1;
@@ -78,11 +80,11 @@ void controller_t::execute() {
     while(!statements_.empty()){
         while( statements_.front().parameter != "WINNER\r") {
             cout << "El .out fue recibido c: \n";
-            while(statements_.front().status == "REJECTED\r") {
+            while(statements_.front().status == "REJECTED\r" && !hPassed) {
                 handshakeIn("BattleBot");
                 break;
             }
-            while( statements_.front().action == "PLACEFEET\r" || (statements_.front().parameter == "CONTINUE" && !hPassed)) {
+            while( statements_.front().action == "PLACEFEET" || ((statements_.front().parameter == "CONTINUE") && !hPassed)) {
                 cout << "Entro a fase de construccion \n";
                 if (!hPassed) {
                     setBoard(statements_.front().scope);
@@ -112,10 +114,12 @@ void controller_t::load_tokens(string& str) {
     string path;
     path += board_.get_path();
     path += "/in/FirstPlayer";
-    path += to_string(n-1);
+    path += to_string(n);
     path += ".in";
+    cout << "se abrio: " << path << endl;
     file.open(path);
-    file << str;
+    file << str <<endl;
+    file.close();
 }
 
 statement_t controller_t::save_tokens() {
@@ -126,17 +130,19 @@ statement_t controller_t::save_tokens() {
     path += to_string(n);
     path +=".out";
     n++;
-    file.open(path);
+    //file.open(path);
+
+
     while (!file.is_open()) {
+        this_thread::sleep_until(chrono::system_clock::now() + chrono::seconds(1)); //se bugea si lo hace instantaneo
         file.open(path);
     }
     statement_t statement;
     string line;
-    cout << "si" << endl;
-    getline (file,line);
-    cout << line << endl;
-    std::stringstream first_(line);
 
+    getline (file,line);
+    //std::stringstream first_(line);
+    cout << "linea: "<<"\n" << line << "\n";
     if (line == "HANDSHAKE"){
         cout << "entro handshake\n";
         statement.action = line;
@@ -154,8 +160,14 @@ statement_t controller_t::save_tokens() {
         pos = line.find('=')+1;
         statement.parameter = line.substr(pos);
 
+        cout << "action: " << statement.action << "\n";
+        cout << "status: " << statement.status << "\n";
+        cout << "token: " << statement.token << "\n";
+        cout << "scope: " << statement.scope << "\n";
+        cout << "parameter: " << statement.parameter << "\n";
     }
     else {
+        cout << "entro else\n";
         statement.action = line;
 
         getline (file,line);
@@ -165,12 +177,15 @@ statement_t controller_t::save_tokens() {
         getline (file,line);
         pos = line.find('=')+1;
         statement.parameter = line.substr(pos);
+
+        cout << "action: " << statement.action << "\n";
+        cout << "status: " << statement.status << "\n";
+        cout << "parameter: " << statement.parameter << "\n";
     }
-    cout <<endl<< statement.action << endl;
-    cout << statement.status << endl;
-    cout << statement.parameter << endl;
+
     file.close();
 
+    cout << "se borro: " << path << endl;
     filesystem::remove(path); //borra el .out
     return statement;
 }
