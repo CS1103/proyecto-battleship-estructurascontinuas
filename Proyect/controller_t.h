@@ -8,6 +8,7 @@
 struct statement_t {
     string action;
     string token;
+    string scope;
     string status;
     parameter_t parameter;
 };
@@ -32,8 +33,8 @@ public:
     void setToken(const text_t& token);
     void execute();
     void printBoard();
-    void load_tokens();
-    void save_tokens();
+    void load_tokens(string& str);
+    statement_t save_tokens();
 };
 
 

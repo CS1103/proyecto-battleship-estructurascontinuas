@@ -3,6 +3,7 @@
 //global variable
 vector<char> modelsava = {'A','B','B','S','S','S','T','T','T','T'};
 
+int n = 1;
 
 void controller_t::printBoard() {
     int a =1;
@@ -40,55 +41,7 @@ void controller_t::printBoard() {
     cout << endl;
 }
 
-void out(const string& str) {
-    ofstream file;
-    file.open("../in/FirstPlayer.in");
-    file << str;
-}
 
-statement_t in () { // devuelve el comando del .out
-    ifstream file;
-    statement_t statement;
-    string line;
-    int idx = 0;
-    file.open("../out/FirstPlayer.out");
-    getline (file,line);
-    if (line == "HANDSHAKE\r"){
-        statement.action = line;
-        getline (file,line);
-        int pos = line.find('=')+1;
-        statement.status = line.substr(pos);
-        getline (file,line);
-        pos = line.find('=')+1;
-        statement.token = line.substr(pos);
-        getline (file,line);
-        pos = line.find('=')+1;
-        statement.parameter = line.substr(pos);
-    }
-    else {
-        statement.action = line;
-        getline (file,line);
-        int pos = line.find('=')+1;
-        statement.status = line.substr(pos);
-
-        getline (file,line);
-        pos = line.find('=')+1;
-        statement.parameter = line.substr(pos);
-    }
-    file.close();
-    return statement;
-}
-
-statement_t waitIn() {    // observer? espera hasta que exista un archivo.out
-    ifstream file;
-    file.open("../out/FirstPlayer.out");
-    while (!file.is_open()) {
-        file.open("../out/FirstPlayer.out");
-    }
-    statement_t statement = in();
-    remove("../out/FirstPlayer.out"); //borra el .out
-    return statement;
-}//guarda la informacion del .in
 
 string controller_t::placeFleet(model_t& model){ // recibe el primer statement y
     string str = "TOKEN=" + token_ + "\n";
@@ -113,7 +66,7 @@ string controller_t::placeFleet(model_t& model){ // recibe el primer statement y
 
 void controller_t::handshakeIn(const string& name) {
     string str = "HANDSHAKE=" + name;
-    out(str);
+    load_tokens(str);
 }
 
 void controller_t::execute() {
@@ -121,18 +74,18 @@ void controller_t::execute() {
     bool hPassed = false;
 
     handshakeIn("BattleBot");
-    statements_.push(waitIn());
+    statements_.push(save_tokens());
     while(!statements_.empty()){
         while( statements_.front().parameter != "WINNER\r") {
-            //cout << "El .out fue recibido c: \n";
+            cout << "El .out fue recibido c: \n";
             while(statements_.front().status == "REJECTED\r") {
                 handshakeIn("BattleBot");
                 break;
             }
-            while( statements_.front().action == "PLACEFLEET\r" || (statements_.front().status == "ACCEPTED\r" && !hPassed)) {
-
+            while( statements_.front().action == "PLACEFEET\r" || (statements_.front().parameter == "CONTINUE" && !hPassed)) {
+                cout << "Entro a fase de construccion \n";
                 if (!hPassed) {
-                    setBoard(statements_.front().parameter);
+                    setBoard(statements_.front().scope);
                     cout << "Board inicializado con:\n";
                     cout << board_.get_rows() <<" rows\n";
                     cout << board_.get_cols() <<" cols\n";
@@ -144,26 +97,90 @@ void controller_t::execute() {
                 build( statements_.front());
                 break;
             }
-            while( statements_.front().action == "ATTACK\r" || statements_.front().parameter == "FULL\r") {
+            while( statements_.front().action == "ATTACK" || statements_.front().parameter == "FULL\r") {
                 attack( statements_.front());
                 break;
             }
             statements_.pop();
-            statements_.push(waitIn());
+            statements_.push(save_tokens());
         }
     }
 }
 
-void controller_t::load_tokens() {
-
+void controller_t::load_tokens(string& str) {
+    ofstream file;
+    string path;
+    path += board_.get_path();
+    path += "/in/FirstPlayer";
+    path += to_string(n-1);
+    path += ".in";
+    file.open(path);
+    file << str;
 }
 
-void controller_t::save_tokens() {
+statement_t controller_t::save_tokens() {
+    ifstream file;
+    string path;
+    path += board_.get_path();
+    path += "/out/FirstPlayer";
+    path += to_string(n);
+    path +=".out";
+    n++;
+    file.open(path);
+    while (!file.is_open()) {
+        file.open(path);
+    }
+    statement_t statement;
+    string line;
+    cout << "si" << endl;
+    getline (file,line);
+    cout << line << endl;
+    std::stringstream first_(line);
 
+    if (line == "HANDSHAKE"){
+        cout << "entro handshake\n";
+        statement.action = line;
+        getline (file,line);
+
+        int pos = line.find('=')+1;
+        statement.status = line.substr(pos);
+        getline (file,line);
+        pos = line.find('=')+1;
+        statement.token = line.substr(pos);
+        getline (file,line);
+        pos = line.find('=')+1;
+        statement.scope = line.substr(pos);
+        getline (file,line);
+        pos = line.find('=')+1;
+        statement.parameter = line.substr(pos);
+
+    }
+    else {
+        statement.action = line;
+
+        getline (file,line);
+        int pos = line.find('=')+1;
+        statement.status = line.substr(pos);
+
+        getline (file,line);
+        pos = line.find('=')+1;
+        statement.parameter = line.substr(pos);
+    }
+    cout <<endl<< statement.action << endl;
+    cout << statement.status << endl;
+    cout << statement.parameter << endl;
+    file.close();
+
+    filesystem::remove(path); //borra el .out
+    return statement;
 }
 
 controller_t::controller_t(text_t& name) {
     name_ = name;
+    if (!filesystem::exists(board_.get_path() / "in"))
+        filesystem::create_directories(board_.get_path() / "in");
+    if (!filesystem::exists(board_.get_path() / "out"))
+        filesystem::create_directories(board_.get_path() / "out");
 }
 
 void controller_t::setBoard(parameter_t scope) {
@@ -186,7 +203,7 @@ void controller_t::build(const statement_t &item) {
         cout << "------------------------------------\n";
         cout << "TABLERO \n";
         printBoard();
-        out(str);
+        load_tokens(str);
 
     }
     else{

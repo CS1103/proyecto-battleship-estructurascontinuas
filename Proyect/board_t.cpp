@@ -58,3 +58,7 @@ bool board_t::isvalid(size_t row, size_t col) {
     }
     return false;
 }
+
+path_t board_t::get_path() {
+    return path_;
+}

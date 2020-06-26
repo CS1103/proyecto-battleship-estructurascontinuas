@@ -19,6 +19,9 @@ int main() {
     //b.print();
     string name = "BattleBot";
     controller_t ctr(name);
+    //ctr.getBoard().set_path();
+    //cout << ctr.getBoard().get_path();
+    //cout << filesystem::current_path();
     ctr.execute();
     return 0;
 }

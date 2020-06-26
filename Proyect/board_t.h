@@ -16,6 +16,7 @@ using namespace std;
 
 class board_t {
 private:
+    path_t path_ = filesystem::current_path();
     letter_t cols_;
     size_t rows_;
     cells_t cells_;
@@ -27,9 +28,9 @@ public:
     board_t(letter_t cols, size_t rows);
     pCells_t get_pCells();
     void add_fleet(navy_t& navy);
-    void print();
     letter_t get_cols();
     size_t get_rows();
+    path_t get_path();
     bool isvalid(size_t row, size_t col);
 };
 
