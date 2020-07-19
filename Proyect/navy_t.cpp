@@ -93,3 +93,7 @@ void navy_t::set_status(status_t& status) {
 layout_t navy_t::get_layout(){
     return layout_;
 }
+
+model_t navy_t::get_model() {
+    return model_;
+}

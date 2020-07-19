@@ -23,6 +23,7 @@ public:
     status_t get_status();
     void set_status(status_t& status);
     layout_t get_layout();
+    model_t get_model();
 
 };
 

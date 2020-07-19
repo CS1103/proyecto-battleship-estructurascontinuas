@@ -1,7 +1,8 @@
 #include "controller_t.h"
 
 //global variable
-vector<char> modelsava = {'A','B','B','S','S','S','T','T','T','T'};
+//vector<char> modelsava = {'A','B','S','S','S','T','T','T','T'};
+vector<char> modelsava = {'A', 'B', 'S', 'T'};
 
 
 int n = 1;
@@ -51,8 +52,9 @@ string controller_t::placeFleet(model_t& model){ // recibe el primer statement y
     size_t rows;
     char orientacion;
     navy_t navy = navy_t(cols, rows, model, orientacion, board_ ,rows,cols); //no importan los primeros dos
-    //char cols = char(randint(65, board_.get_cols()));
-    //size_t rows = randint(1, board_.get_rows());
+
+    board_.add_fleet(navy);
+
     cout << "model " << model << "\n";
     cout << "coor: " << cols << "-" << rows << "\n";
     cout << "orientation " << orientacion << "\n";
@@ -78,7 +80,7 @@ void controller_t::execute() {
     handshakeIn("BattleBot");
     statements_.push(save_tokens());
     while(!statements_.empty()){
-        while( statements_.front().parameter != "WINNER\r") {
+        while( statements_.front().parameter != "WINNER" || statements_.front().parameter != "GAMEOVER") {
             cout << "El .out fue recibido c: \n";
             while(statements_.front().status == "REJECTED\r" && !hPassed) {
                 handshakeIn("BattleBot");
@@ -95,12 +97,20 @@ void controller_t::execute() {
                     cout << "Controller inicializado con:\n";
                     cout << "token: " << token_ <<"\n";
                 }
+                if (statements_.front().status == "REJECTED" && statements_.front().parameter == "OUTSIDE"){
+                    modelsava.push_back((board_.get_fleet().back())->get_model());
+                    for (auto cell: (board_.get_fleet().back())->get_layout()) {
+                        cell->set_status("clear");
+                    }
+                    board_.pop_fleet();
+                }
                 hPassed = true;
                 build( statements_.front());
                 break;
             }
-            while( statements_.front().action == "ATTACK" || statements_.front().parameter == "FULL\r") {
+            while( statements_.front().action == "ATTACK" || statements_.front().parameter == "FULL" || !modelsava.empty()) {
                 attack( statements_.front());
+
                 break;
             }
             statements_.pop();
@@ -142,7 +152,7 @@ statement_t controller_t::save_tokens() {
 
     getline (file,line);
     //std::stringstream first_(line);
-    cout << "linea: "<<"\n" << line << "\n";
+    cout << "linea: " << line << "\n";
     if (line == "HANDSHAKE"){
         cout << "entro handshake\n";
         statement.action = line;
@@ -160,14 +170,14 @@ statement_t controller_t::save_tokens() {
         pos = line.find('=')+1;
         statement.parameter = line.substr(pos);
 
-        cout << "action: " << statement.action << "\n";
-        cout << "status: " << statement.status << "\n";
-        cout << "token: " << statement.token << "\n";
-        cout << "scope: " << statement.scope << "\n";
-        cout << "parameter: " << statement.parameter << "\n";
+        cout << "   action: " << statement.action << "\n";
+        cout << "   status: " << statement.status << "\n";
+        cout << "   token: " << statement.token << "\n";
+        cout << "   scope: " << statement.scope << "\n";
+        cout << "   parameter: " << statement.parameter << "\n";
     }
     else {
-        cout << "entro else\n";
+        //cout << "entro else\n";
         statement.action = line;
 
         getline (file,line);
@@ -178,9 +188,9 @@ statement_t controller_t::save_tokens() {
         pos = line.find('=')+1;
         statement.parameter = line.substr(pos);
 
-        cout << "action: " << statement.action << "\n";
-        cout << "status: " << statement.status << "\n";
-        cout << "parameter: " << statement.parameter << "\n";
+        cout << "   action: " << statement.action << "\n";
+        cout << "   status: " << statement.status << "\n";
+        cout << "   parameter: " << statement.parameter << "\n";
     }
 
     file.close();
@@ -227,7 +237,15 @@ void controller_t::build(const statement_t &item) {
 }
 
 void controller_t::attack(const statement_t &item) {
+    char letra = randint(0,board_.get_cols())+65;
+    string numero = to_string(randint(0,board_.get_rows()));
+    string coordenada = letra + numero;
+    //simplemente es random, implementar forma mas "inteligente"
 
+    string str = "TOKEN=" + token_ + "\n";
+
+    str += "ATTACK=" + coordenada;
+    load_tokens(str);
 }
 
 void controller_t::setToken(const text_t& token) {

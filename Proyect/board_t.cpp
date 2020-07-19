@@ -31,8 +31,15 @@ pCells_t board_t::get_pCells() {
 
 
 void board_t::add_fleet(navy_t& navy) {
-    fleet_.push_back(navy);
     pFleet_.push_back(&navy);
+}
+
+void board_t::pop_fleet() {
+    pFleet_.pop_back();
+}
+
+pFleet_t board_t::get_fleet(){
+    return pFleet_;
 }
 
 letter_t board_t::get_cols() {

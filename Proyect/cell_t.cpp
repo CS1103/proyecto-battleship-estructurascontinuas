@@ -12,6 +12,6 @@ status_t cell_t::get_status() {
     return status_;
 }
 
-void cell_t::set_status(status_t& status) {
+void cell_t::set_status(status_t status) {
     status_ = status;
 }
