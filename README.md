@@ -24,6 +24,8 @@ Para el proceso de comunicación entre el servidor y los jugadores se contará c
 Para desarrollar el proyecto se implementaron las clases nave, celda, tablero y observador con el fin de modularizar las acciones de el programa y permitir una interacción limpia entre las mismas.
 Además de ellos, se desarrollaron dos algoritmos de validación recursivos, uno que verificaba el input del modelo de la nave y otro que verificaba la posición de cada nave, lo que implicaba validar el espacio y si este estaba vacío o no.
 
+<img src="https://github.com/utec-cs1103-2019-01/proyecto-battleship-estructurascontinuas/blob/master/Battleship.jpg">
+
 ## Equipo
 
 > Contribuyentes
