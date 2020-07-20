@@ -5,7 +5,7 @@
 #include "cell_t.h"
 #include "board_t.h"
 
-using layout_t = vector<cell_t*>;
+using layout_t = vector<shared_ptr<cell_t>>;
 
 using namespace std;
 

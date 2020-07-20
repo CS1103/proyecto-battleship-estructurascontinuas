@@ -6,8 +6,8 @@ board_t::board_t() {
 }
 
 board_t::board_t(letter_t cols, size_t rows) {
-    cols_ = cols;
-    rows_ = rows;
+    cols_ = cols-1;
+    rows_ = rows-1;
     size_t nCols = cols_ - 65;
     //cells_t cells;
 
@@ -19,7 +19,7 @@ board_t::board_t(letter_t cols, size_t rows) {
         pCells_[j].resize(nCols+1);
         for (int i = 0; i < cells_[j].size(); i++) {
             cells_[j][i] = cell_t(i, j);
-            pCells_[j][i] = &cells_[j][i];
+            pCells_[j][i] = make_shared<cell_t>(cells_[j][i]);
         }
     }
 }
@@ -30,11 +30,14 @@ pCells_t board_t::get_pCells() {
 
 
 
-void board_t::add_fleet(navy_t& navy) {
-    pFleet_.push_back(&navy);
+void board_t::add_fleet(shared_ptr<navy_t> navy) {
+    pFleet_.push_back(navy);
 }
 
 void board_t::pop_fleet() {
+    for (auto& i: pFleet_.back()->get_layout()){
+        //i->set_status("clear");
+    }
     pFleet_.pop_back();
 }
 
@@ -53,7 +56,7 @@ size_t board_t::get_rows() {
 bool board_t::isvalid(size_t row, size_t col) {
     cout << "tratando de entrar a la celda: " << char(col + 65) << "(" << (col) << ")" << "-" << row << endl;
     //cout << pCells_[row-1][col]->get_status();
-    if (row < rows_ && col < cols_ - 2) {
+    if (row < rows_ && col < cols_ - 3) {
         //pCells_[row-1][col]->get_status();
         if (pCells_[row][col]->get_status() == "clear") {
             return true;

@@ -53,7 +53,7 @@ string controller_t::placeFleet(model_t& model){ // recibe el primer statement y
     char orientacion;
     navy_t navy = navy_t(cols, rows, model, orientacion, board_ ,rows,cols); //no importan los primeros dos
 
-    board_.add_fleet(navy);
+    board_.add_fleet(make_shared<navy_t>(navy));
 
     cout << "model " << model << "\n";
     cout << "coor: " << cols << "-" << rows << "\n";
@@ -81,7 +81,7 @@ void controller_t::execute() {
     statements_.push(save_tokens());
     while(!statements_.empty()){
         while( statements_.front().parameter != "WINNER" || statements_.front().parameter != "GAMEOVER") {
-            cout << "El .out fue recibido c: \n";
+            cout << "El .out fue recibido c: \n" << "TAMAÑO:" << board_.get_fleet().size() << "\n";
             while(statements_.front().status == "REJECTED\r" && !hPassed) {
                 handshakeIn("BattleBot");
                 break;
@@ -98,17 +98,23 @@ void controller_t::execute() {
                     cout << "token: " << token_ <<"\n";
                 }
                 if (statements_.front().status == "REJECTED" && statements_.front().parameter == "OUTSIDE"){
-                    modelsava.push_back((board_.get_fleet().back())->get_model());
-                    for (auto cell: (board_.get_fleet().back())->get_layout()) {
-                        cell->set_status("clear");
-                    }
+//                    for (auto& cell: (board_.get_fleet().back())->get_layout()) {
+//                        cell->set_status("clear");
+//                    }
                     board_.pop_fleet();
                 }
                 hPassed = true;
                 build( statements_.front());
                 break;
             }
-            while( statements_.front().action == "ATTACK" || statements_.front().parameter == "FULL" || !modelsava.empty()) {
+            while( statements_.front().action == "ATTACK" || statements_.front().parameter == "FULL" || modelsava.empty()) {
+                string path;
+                path += board_.get_path();
+                path += "/out";
+                if (statements_.front().parameter == "NO OPONENT") {
+                   
+                    this_thread::sleep_until(chrono::system_clock::now() + chrono::seconds(4));
+                }
                 attack( statements_.front());
 
                 break;
@@ -123,7 +129,12 @@ void controller_t::load_tokens(string& str) {
     ofstream file;
     string path;
     path += board_.get_path();
-    path += "/in/FirstPlayer";
+    if (path.find("first") != string::npos) {
+        path += "/in/FirstPlayer";
+    }
+    else if (path.find("second") != string::npos) {
+        path += "/in/SecondPlayer";
+    }
     path += to_string(n);
     path += ".in";
     cout << "se abrio: " << path << endl;
@@ -136,7 +147,13 @@ statement_t controller_t::save_tokens() {
     ifstream file;
     string path;
     path += board_.get_path();
-    path += "/out/FirstPlayer";
+    if (path.find("first") != string::npos){
+        path += "/out/FirstPlayer";
+    }
+    else if (path.find("second") != string::npos) {
+        path += "/out/SecondPlayer";
+    }
+
     path += to_string(n);
     path +=".out";
     n++;
@@ -215,8 +232,7 @@ void controller_t::setBoard(parameter_t scope) {
 }
 
 void controller_t::build(const statement_t &item) {
-    vector<model_t> models_t = {'A', 'B', 'S', 'T'};
-    auto model = models_t[randint(0, 3)];
+    auto model = modelsava.back();
     if (modelsava.empty()){
         cout << "Flota completa" << endl;
         return;
@@ -237,7 +253,7 @@ void controller_t::build(const statement_t &item) {
 }
 
 void controller_t::attack(const statement_t &item) {
-    char letra = randint(0,board_.get_cols())+65;
+    char letra = randint(65,board_.get_cols());
     string numero = to_string(randint(0,board_.get_rows()));
     string coordenada = letra + numero;
     //simplemente es random, implementar forma mas "inteligente"

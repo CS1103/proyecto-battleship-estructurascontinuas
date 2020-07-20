@@ -8,8 +8,8 @@
 class navy_t;
 
 using cells_t = vector<vector<cell_t>>;
-using pCells_t = vector<vector<cell_t*>>;
-using pFleet_t = vector<navy_t*>;
+using pCells_t = vector<vector<shared_ptr<cell_t>>>;
+using pFleet_t = vector<shared_ptr<navy_t>>;
 
 using namespace std;
 
@@ -25,7 +25,7 @@ public:
     board_t();
     board_t(letter_t cols, size_t rows);
     pCells_t get_pCells();
-    void add_fleet(navy_t& navy);
+    void add_fleet(shared_ptr<navy_t> navy);
     void pop_fleet(); // Borra el ultimo fleet
     pFleet_t get_fleet();
     letter_t get_cols();
