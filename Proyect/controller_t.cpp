@@ -1,7 +1,7 @@
 #include "controller_t.h"
 
 //global variable
-//vector<char> modelsava = {'A','B','S','S','S','T','T','T','T'};
+//vector<char> modelsava = {'A','B','B','S','S','S','T','T','T','T'};
 vector<char> modelsava = {'A', 'B', 'S', 'T'};
 
 
@@ -249,11 +249,132 @@ void controller_t::build(const statement_t &item) {
     }
 }
 
+
+
+bool controller_t::pair_exist(pair<size_t, char> p) {
+    return (p.first <= board_.get_rows() && p.second >= 65 && p.second <= board_.get_cols());
+}
+
+char letra;
+size_t numero;
+char letra_base;
+size_t numero_base;
+bool hit = false;
+
+vector<pair<size_t, char>> posible_cells;//Contendra todas las celdas donde podria estar el barco que golpeo
+vector<pair<size_t, char>> hit_cells;//Contendra las celdas golpeadas
+
+bool cells_iguales(pair<size_t, char> cell1, pair<size_t, char> cell2) {
+    return (cell1.first==cell2.first && cell1.second==cell2.second);
+}
+
 void controller_t::attack(const statement_t &item) {
-    char letra = randint(65,board_.get_cols());
-    string numero = to_string(randint(0,board_.get_rows()));
-    string coordenada = letra + numero;
-    //simplemente es random, implementar forma mas "inteligente"
+
+    if (item.parameter=="DAMAGED" || hit){
+        if (!hit) { // Si es la primera vez que le ha dado a un barco...
+            letra_base = letra;
+            numero_base = numero;
+            for (int i = 1; i <= 3; i++) {
+                pair<size_t, char> p1 = {numero_base-i, letra_base};
+                if (pair_exist(p1))
+                    posible_cells.push_back(p1);
+                pair<size_t, char> p2 = {numero_base, letra_base-i};
+                if (pair_exist(p2))
+                    posible_cells.push_back(p2);
+                pair<size_t, char> p3 = {numero_base+i, letra_base};
+                if (pair_exist(p3))
+                    posible_cells.push_back(p3);
+                pair<size_t, char> p4 = {numero_base, letra_base+i};
+                if (pair_exist(p4))
+                    posible_cells.push_back(p4);
+            }
+            cout << "POSIBLES CELDAS: \n";
+            for (auto i: posible_cells) {
+                cout << i.second << "-" << i.first << endl;
+            }
+        }
+        else if (item.parameter=="FAILED") { //Si fallo el segundo tiro
+            if (letra_base > letra) { //Removera todas las celdas donde seria imposible que este el barco para intentar con las que si serian posibles
+                auto it = find_if(posible_cells.begin(), posible_cells.end(), [](pair<size_t, char> p){return(p.first == numero_base && p.second < letra_base);});
+                while (it != posible_cells.end()){
+                    posible_cells.erase(it);
+                    it = find_if(posible_cells.begin(), posible_cells.end(), [](pair<size_t, char> p){return(p.first == numero_base && p.second < letra_base);});
+                }
+            }
+            else if (letra_base < letra) {
+                auto it = find_if(posible_cells.begin(), posible_cells.end(), [](pair<size_t, char> p){return(p.first == numero_base && p.second > letra_base);});
+                while (it != posible_cells.end()){
+                    posible_cells.erase(it);
+                    it = find_if(posible_cells.begin(), posible_cells.end(), [](pair<size_t, char> p){return(p.first == numero_base && p.second > letra_base);});
+                }
+            }
+            else if (numero_base > numero) {
+                auto it = find_if(posible_cells.begin(), posible_cells.end(), [](pair<size_t, char> p){return(p.first < numero_base && p.second == letra_base);});
+                while (it != posible_cells.end()){
+                    posible_cells.erase(it);
+                    it = find_if(posible_cells.begin(), posible_cells.end(), [](pair<size_t, char> p){return(p.first < numero_base && p.second == letra_base);});
+                }
+            }
+            else if (numero_base < numero){
+                auto it = find_if(posible_cells.begin(), posible_cells.end(), [](pair<size_t, char> p){return(p.first > numero_base && p.second == letra_base);});
+                while (it != posible_cells.end()){
+                    posible_cells.erase(it);
+                    it = find_if(posible_cells.begin(), posible_cells.end(), [](pair<size_t, char> p){return(p.first > numero_base && p.second == letra_base);});
+                }
+            }
+        }
+        letra = posible_cells[0].second;
+        numero = posible_cells[0].first;
+        posible_cells.erase(posible_cells.begin());
+        hit =true;
+    }
+    if (item.parameter=="DESTROYED" || posible_cells.size()==1) {
+
+        hit = false;
+        letra = randint(65,board_.get_cols());
+        numero = randint(0,board_.get_rows());
+
+        auto p = make_pair(numero, letra);
+        bool found = true;
+        while (found) {
+            found = false;
+            for (auto &i: hit_cells) {
+                if (cells_iguales(i,p)) {
+                    letra = randint(65,board_.get_cols());
+                    numero = randint(0,board_.get_rows());
+                    p = make_pair(numero, letra);
+                    found = true;
+                    break;
+                }
+            }
+        }
+        posible_cells.clear();
+    }
+    else {
+        letra = randint(65,board_.get_cols());
+        numero = randint(0,board_.get_rows());
+
+        auto p = make_pair(numero, letra);
+        bool found = true;
+        while (found) {
+            found = false;
+            for (auto &i: hit_cells) {
+                if (cells_iguales(i,p)) {
+                    letra = randint(65,board_.get_cols());
+                    numero = randint(0,board_.get_rows());
+                    p = make_pair(numero, letra);
+                    found = true;
+                    break;
+                }
+            }
+        }
+    }
+    cout << "ATEQUE REALIZADO A: " << letra << "-" <<  numero<< endl;
+
+    hit_cells.push_back(make_pair(numero, letra));
+
+    string coordenada = letra + to_string(numero);
+
 
     string str = "TOKEN=" + token_ + "\n";
 

@@ -39,6 +39,7 @@ public:
     string place_fleet(model_t& model);
     void execute();
     void print_board();
+    bool pair_exist(pair<size_t, char> p);
 
     //Manejo de archivos
     void load_tokens(string& str);

@@ -18,10 +18,6 @@ cell_t.h
 navy_t.h
 /cygdrive/c/Users/Acer/proyecto-battleship-estructurascontinuas/Proyect/navy_t.h
 
-/cygdrive/c/Users/Acer/proyecto-battleship-estructurascontinuas/Proyect/cell_t.cpp
-cell_t.h
-/cygdrive/c/Users/Acer/proyecto-battleship-estructurascontinuas/Proyect/cell_t.h
-
 /cygdrive/c/Users/Acer/proyecto-battleship-estructurascontinuas/Proyect/cell_t.h
 common_types.h
 /cygdrive/c/Users/Acer/proyecto-battleship-estructurascontinuas/Proyect/common_types.h
@@ -61,28 +57,6 @@ regex
 -
 utility
 -
-
-/cygdrive/c/Users/Acer/proyecto-battleship-estructurascontinuas/Proyect/controller_t.cpp
-controller_t.h
-/cygdrive/c/Users/Acer/proyecto-battleship-estructurascontinuas/Proyect/controller_t.h
-
-/cygdrive/c/Users/Acer/proyecto-battleship-estructurascontinuas/Proyect/controller_t.h
-board_t.h
-/cygdrive/c/Users/Acer/proyecto-battleship-estructurascontinuas/Proyect/board_t.h
-common_types.h
-/cygdrive/c/Users/Acer/proyecto-battleship-estructurascontinuas/Proyect/common_types.h
-
-/cygdrive/c/Users/Acer/proyecto-battleship-estructurascontinuas/Proyect/main.cpp
-common_types.h
-/cygdrive/c/Users/Acer/proyecto-battleship-estructurascontinuas/Proyect/common_types.h
-navy_t.h
-/cygdrive/c/Users/Acer/proyecto-battleship-estructurascontinuas/Proyect/navy_t.h
-controller_t.h
-/cygdrive/c/Users/Acer/proyecto-battleship-estructurascontinuas/Proyect/controller_t.h
-
-/cygdrive/c/Users/Acer/proyecto-battleship-estructurascontinuas/Proyect/navy_t.cpp
-navy_t.h
-/cygdrive/c/Users/Acer/proyecto-battleship-estructurascontinuas/Proyect/navy_t.h
 
 /cygdrive/c/Users/Acer/proyecto-battleship-estructurascontinuas/Proyect/navy_t.h
 common_types.h

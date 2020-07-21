@@ -55,7 +55,7 @@ size_t board_t::get_rows() {
 
 bool board_t::is_valid(size_t row, size_t col) {
     cout << "tratando de entrar a la celda: " << char(col + 65) << "(" << (col) << ")" << "-" << row << endl;
-    if (row < rows_ && col < cols_ - 3) {
+    if (row < pCells_.size() && col < pCells_[0].size()) {
         if (pCells_[row][col]->get_status() == "clear") {
             return true;
         } else {
