@@ -8,11 +8,15 @@ private:
     coordinates_t coordinates_; //vector de posiciones = size_t
     status_t status_ = "clear";
 public:
+    //Constructores
     cell_t();
     cell_t(position_t x, position_t y);
-    status_t get_status();
-    void set_status(status_t status);
 
+    //Getter
+    status_t get_status();
+
+    //Setter
+    void set_status(status_t status);
 };
 
 

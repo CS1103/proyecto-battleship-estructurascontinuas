@@ -7,8 +7,15 @@ vector<char> modelsava = {'A', 'B', 'S', 'T'};
 
 int n = 1;
 
+controller_t::controller_t(text_t name) {
+    name_ = name;
+    if (!filesystem::exists(board_.get_path() / "in"))
+        filesystem::create_directories(board_.get_path() / "in");
+    if (!filesystem::exists(board_.get_path() / "out"))
+        filesystem::create_directories(board_.get_path() / "out");
+}
 
-void controller_t::printBoard() {
+void controller_t::print_board() {
     int a =1;
     cout << setw(4);
     for (int i = 65; i <= board_.get_cols(); i++)
@@ -46,7 +53,7 @@ void controller_t::printBoard() {
 
 
 
-string controller_t::placeFleet(model_t& model){ // recibe el primer statement y
+string controller_t::place_fleet(model_t& model){ // recibe el primer statement y
     string str = "TOKEN=" + token_ + "\n";
     char cols;
     size_t rows;
@@ -68,7 +75,7 @@ string controller_t::placeFleet(model_t& model){ // recibe el primer statement y
     return str; // Devuelve un string para hacer push en el .out - working
 }
 
-void controller_t::handshakeIn(const string& name) {
+void controller_t::handshakeIn(text_t name) {
     string str = "HANDSHAKE=" + name;
     load_tokens(str);
 }
@@ -81,7 +88,7 @@ void controller_t::execute() {
     statements_.push(save_tokens());
     while(!statements_.empty()){
         while( statements_.front().parameter != "WINNER" || statements_.front().parameter != "GAMEOVER") {
-            cout << "El .out fue recibido c: \n" << "TAMAÑO:" << board_.get_fleet().size() << "\n";
+            cout << "El .out fue recibido c: \n";
             while(statements_.front().status == "REJECTED\r" && !hPassed) {
                 handshakeIn("BattleBot");
                 break;
@@ -89,12 +96,11 @@ void controller_t::execute() {
             while( statements_.front().action == "PLACEFEET" || ((statements_.front().parameter == "CONTINUE") && !hPassed)) {
                 cout << "Entro a fase de construccion \n";
                 if (!hPassed) {
-                    setBoard(statements_.front().scope);
+                    set_board(statements_.front().scope);
                     cout << "Board inicializado con:\n";
                     cout << board_.get_rows() <<" rows\n";
                     cout << board_.get_cols() <<" cols\n";
-                    setToken(statements_.front().token);
-                    cout << "Controller inicializado con:\n";
+                    set_token(statements_.front().token);
                     cout << "token: " << token_ <<"\n";
                 }
                 if (statements_.front().status == "REJECTED" && statements_.front().parameter == "OUTSIDE"){
@@ -112,7 +118,7 @@ void controller_t::execute() {
                 path += board_.get_path();
                 path += "/out";
                 if (statements_.front().parameter == "NO OPONENT") {
-                   
+
                     this_thread::sleep_until(chrono::system_clock::now() + chrono::seconds(4));
                 }
                 attack( statements_.front());
@@ -137,7 +143,7 @@ void controller_t::load_tokens(string& str) {
     }
     path += to_string(n);
     path += ".in";
-    cout << "se abrio: " << path << endl;
+    //cout << "se abrio: " << path << endl;
     file.open(path);
     file << str <<endl;
     file.close();
@@ -146,6 +152,7 @@ void controller_t::load_tokens(string& str) {
 statement_t controller_t::save_tokens() {
     ifstream file;
     string path;
+
     path += board_.get_path();
     if (path.find("first") != string::npos){
         path += "/out/FirstPlayer";
@@ -157,21 +164,17 @@ statement_t controller_t::save_tokens() {
     path += to_string(n);
     path +=".out";
     n++;
-    //file.open(path);
-
 
     while (!file.is_open()) {
-        this_thread::sleep_until(chrono::system_clock::now() + chrono::seconds(1)); //se bugea si lo hace instantaneo
+        this_thread::sleep_until(chrono::system_clock::now() + chrono::seconds(1)); //El servidor no soporta el pusheo instantaneo de archivos
         file.open(path);
     }
     statement_t statement;
     string line;
 
     getline (file,line);
-    //std::stringstream first_(line);
-    cout << "linea: " << line << "\n";
     if (line == "HANDSHAKE"){
-        cout << "entro handshake\n";
+        //cout << "entro handshake\n";
         statement.action = line;
         getline (file,line);
 
@@ -212,20 +215,14 @@ statement_t controller_t::save_tokens() {
 
     file.close();
 
-    cout << "se borro: " << path << endl;
+    //cout << "se borro: " << path << endl;
     filesystem::remove(path); //borra el .out
     return statement;
 }
 
-controller_t::controller_t(text_t& name) {
-    name_ = name;
-    if (!filesystem::exists(board_.get_path() / "in"))
-        filesystem::create_directories(board_.get_path() / "in");
-    if (!filesystem::exists(board_.get_path() / "out"))
-        filesystem::create_directories(board_.get_path() / "out");
-}
 
-void controller_t::setBoard(parameter_t scope) {
+
+void controller_t::set_board(parameter_t scope) {
     auto cols = scope[0];
     auto rows = stoi(scope.substr(2));
     board_ = board_t(cols, rows);
@@ -234,16 +231,16 @@ void controller_t::setBoard(parameter_t scope) {
 void controller_t::build(const statement_t &item) {
     auto model = modelsava.back();
     if (modelsava.empty()){
-        cout << "Flota completa" << endl;
+        cout << "FLOTA COMPLETA" << endl;
         return;
     }
     if (find(modelsava.begin(),modelsava.end(),model)!=modelsava.end()){
         modelsava.erase(find(modelsava.begin(),modelsava.end(),model));
         cout << "Entrando a creacion de barco \n";
-        auto str =  placeFleet(model);
+        auto str =  place_fleet(model);
         cout << "------------------------------------\n";
         cout << "TABLERO \n";
-        printBoard();
+        print_board();
         load_tokens(str);
 
     }
@@ -264,10 +261,10 @@ void controller_t::attack(const statement_t &item) {
     load_tokens(str);
 }
 
-void controller_t::setToken(const text_t& token) {
+void controller_t::set_token(const text_t& token) {
     token_ = token;
 }
 
-board_t controller_t::getBoard() {
+board_t controller_t::get_board() {
     return board_t();
 }

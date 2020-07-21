@@ -15,13 +15,13 @@ class navy_t {
 private:
     location_t location_ = {};
     model_t model_; // (A)ircraft_Carrier, (B)attlecruiser, (S)ubmarine, (T)orpedo_boat
-    status_t status_ = "ok"; // ok, destroyed
     orientation_t orientation_; // V, H
     layout_t layout_;
 public:
+    //Constructor
     navy_t(position_t x, position_t y, model_t model, orientation_t& orientation, board_t& board,size_t& row_, char& col_);
-    status_t get_status();
-    void set_status(status_t& status);
+
+    //Getters
     layout_t get_layout();
     model_t get_model();
 

@@ -36,7 +36,7 @@ void board_t::add_fleet(shared_ptr<navy_t> navy) {
 
 void board_t::pop_fleet() {
     for (auto& i: pFleet_.back()->get_layout()){
-        //i->set_status("clear");
+        i->set_status("clear");
     }
     pFleet_.pop_back();
 }
@@ -53,18 +53,16 @@ size_t board_t::get_rows() {
     return rows_;
 }
 
-bool board_t::isvalid(size_t row, size_t col) {
+bool board_t::is_valid(size_t row, size_t col) {
     cout << "tratando de entrar a la celda: " << char(col + 65) << "(" << (col) << ")" << "-" << row << endl;
-    //cout << pCells_[row-1][col]->get_status();
     if (row < rows_ && col < cols_ - 3) {
-        //pCells_[row-1][col]->get_status();
         if (pCells_[row][col]->get_status() == "clear") {
             return true;
         } else {
-            cout << "algo falla";
+            cout << "celda no valida\n";
         }
     } else {
-        cout << "algo falla";
+        cout << "celda no valida\n";
     }
     return false;
 }
