@@ -12,6 +12,9 @@
 - El programa consta de un servidor que devolverá un archivo .out (respuesta) a partir de los archivos .in que envían los jugadores por cada acción. Las acciones desarrolladas hasta el momento corresponden a la primera parte del desarrollo juego en el que se inscribe al equipo a partir de un nombre y se espera la respuesta de aceptación que además incluirá un Token y los límites del Scope (tablero del jugador). Posteriormente, para agregar a las naves se sigue el mismo procedimiento, generando un .in para cada nave, en el que se envía el Token (para identificar a qué jugador corresponde), y un segundo parámetro que indica el modelo de nave, las coordenadas en las que se posicionará y la orientación, siguiendo el formato (Nave-Coordenada-Orientación).
 Para el proceso de comunicación entre el servidor y los jugadores se contará con un observer que permitirá reconocer el momento en el que el jugador recibe la respuesta del servidor y poder continuar con el siguiente paso.
 
+> Video explicatorio
+
+https://youtu.be/P0crI23kunc
 
 > Indicaciones
 - Para esta versión preliminar del proyecto se seguirán las siguientes indicaciones para su ejecución:
