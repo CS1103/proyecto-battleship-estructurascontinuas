@@ -1,8 +1,8 @@
 #include "controller_t.h"
 
 //global variable
-//vector<char> modelsava = {'A','B','B','S','S','S','T','T','T','T'};
-vector<char> modelsava = {'A', 'B', 'S', 'T'};
+vector<char> modelsava = {'A','B','B','S','S','S','T','T','T','T'};
+//vector<char> modelsava = {'A', 'B', 'S', 'T'};
 
 
 int n = 1;
