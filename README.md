@@ -37,3 +37,7 @@ Además de ellos, se desarrollaron dos algoritmos de validación recursivos, uno
 | :---: | :---:| :---:| :---:|
 | ![Luis](https://avatars2.githubusercontent.com/u/52045791?v=3&s=150) | ![Mario](https://avatars2.githubusercontent.com/u/57011629?v=3&s=150) | ![Daniela](https://avatars2.githubusercontent.com/u/52045791?v=3&s=150) | ![Milagros](https://avatars2.githubusercontent.com/u/55298493?v=3&s=150) |
 | <a href="https://github.com/lender512" target="_blank">`github.com/lender512`</a> | <a href="https://github.com/morphisjustfun" target="_blank">`github.com/morphisjustfun`</a> | <a href="https://github.com/daniela08" target="_blank">`github.com/daniela08`</a> |<a href="https://github.com/miyulo139" target="_blank">`github.com/miyulo139`</a> |
+
+## Bibliografia
+
+http://www.datagenetics.com/blog/december32011/
